@@ -4,13 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Emporium</title>
-    <link rel="stylesheet" href="assests/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h1>Welcome to the Pokemon Emporium</h1>
+    <h1 id="index-pokemon-header">Welcome to the Pokemon Emporium</h1>
 
-    <button><a href="pokemon-memory.html">Pokemon Memory Card Game</a></button>
+    <button class="main-button"><a href="pokemon-memory.html">Pokemon Memory Card Game</a></button>
 
-    <button><a href="pokemon-battle.html">Pokemon Battlegrounds</a></button>
+    <button class="main-button"><a href="pokemon-battle.html">Pokemon Battlegrounds</a></button>
+
+    <button id="help-button" class="main-button">Which one to pick?</button>
+    <div id="help-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>The Pokemon memory card will test your memory to the extreme with authentic cards to choose from. With a current high score, you'll be addicted on trying to beat it!</p>
+        <p>Or go to the Pokemon Battleground to fight with other Pokemon through a random generator. Who knows what Pokemon you'll be given!</p>
+      </div>
+    
+    </div>
 </body>
+<script>
+
+var modal = document.getElementById("help-modal");
+var btn = document.getElementById("help-button");
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 </html>
