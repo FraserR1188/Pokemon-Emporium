@@ -2,6 +2,12 @@
 
 /*****************************index**/
 
+.background-image {
+    background-image: url("../images/pokemon_bg.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
 body {
     font-family: "Sixtyfour Convergence", sans-serif;
     display: flex;
@@ -14,8 +20,13 @@ body {
 #index-pokemon-header {
     font-size: 4rem;
     font-weight: 800;
-    padding: 100px;
+    padding: 50px;
     text-align: center;
+    background-color: #fefefe;
+    margin-left: 200px;
+    margin-right: 200px;
+    border: 2px solid black;
+    border-radius: 10px;
 }
 
 .modal {
@@ -31,16 +42,18 @@ body {
     background-color: rgba(0,0,0,0.4);
 }
   
-  /* Modal Content/Box */
+  /*********modal content box */
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 2px solid black;
     width: 60%; 
+    font-size: 1.5rem;
+    line-height: 1.5;
+    border-radius: 10px;
 }
   
-  /* The Close Button */
 .close {
     color: #aaa;
     float: right;
@@ -55,9 +68,10 @@ body {
     cursor: pointer;
 }
 
+/*****************button*/
+
 .main-button a {
     text-decoration: none;
-    color: #000;
 }
 
 .main-button {
@@ -85,4 +99,19 @@ body {
     background-color: #ffde00;
     box-shadow: none;
     transform: translateY(4px);
+}
+
+/*****************memory card game styles*/
+
+#game-board {
+    height: 532px;
+    width: 475px;
+    background-color: #ff0000;
+    border: 10px solid black;
+}
+
+.card {
+    height: 128px;
+    width: 90px;
+    margin: 2.5px;
 }

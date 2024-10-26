@@ -9,12 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="background-image">
     <h1 id="index-pokemon-header">Welcome to the Pokemon Emporium</h1>
 
-    <button class="main-button"><a href="pokemon-memory.html">Pokemon Memory Card Game</a></button>
+    <button class="main-button" onclick="window.location.href = 'pokemon-memory.html'">Pokemon Memory Card Game</button>
 
-    <button class="main-button"><a href="pokemon-battle.html">Pokemon Battlegrounds</a></button>
+    <button class="main-button"><a href="pokemon-battle.html"></a>Pokemon Battlegrounds</button>
 
     <button id="help-button" class="main-button">Which one to pick?</button>
     <div id="help-modal" class="modal">
@@ -28,6 +28,7 @@
 </body>
 <script>
 
+//Code for help modal
 var modal = document.getElementById("help-modal");
 var btn = document.getElementById("help-button");
 var span = document.getElementsByClassName("close")[0];
