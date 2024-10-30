@@ -9,13 +9,15 @@ var cardList = [
     "mewtwo",
     "pidgeotto",
     "pikachu",
-    "snorlax"
 ]
 
 var cardSet;
 var board = [];
 var rows = 4;
 var columns = 5;
+
+var card1Selected;
+var card2Selected;
 
 window.onload = function() {
     shuffleCards();
@@ -44,13 +46,47 @@ function startGame() {
         for (let c = 0; c < columns; c++) {
             let cardImage = cardSet.pop();
             row.push(cardImage);
+            console.log(cardImage)
 
             //creates the img, class and gives it a source
             let card = document.createElement("img");
             card.id = r.toString() + "-" + c.toString();
-            card.src = cardImage + ".avif";
-            card.classList("card");
+            card.src = `assets/images/playing-cards/${cardImage}.avif`;
+            card.onerror = () => {
+                console.error(`Failed to load image at ${card.src}`);
+            };
+            card.classList.add("card");
+            card.addEventListener("click", selectCard);
             document.getElementById("game-board").append(card);
+        }
+        board.push(row);
+    }
+    //once the game board has been created the hidecard function will be called at the same
+    //to show the back of the cards.
+    hideCards();
+}
+
+// this goes through the board to create the back of the card
+function hideCards() {
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < columns; c++) {
+            let card = document.getElementById(r.toString() + "-" + c.toString());
+            card.src = "assets/images/back-card/pokemon-card-back-1.avif";
+        }
+    }
+}
+
+function selectCard() {
+    
+    if(this.src.includes("assets/images/back-card/pokemon-card-back-1.avif")) {
+        if (!card1Selected) {
+            card1Selected = this;
+
+            let coords = card1Selected.id.split("-");
+            let r = parseInt(coords[0]);
+            let c = parseInt(coords[1]);
+
+            card1Selected.src = board[r][c] + ".avif"
         }
     }
 }
