@@ -46,15 +46,11 @@ function startGame() {
         for (let c = 0; c < columns; c++) {
             let cardImage = cardSet.pop();
             row.push(cardImage);
-            console.log(cardImage)
 
             //creates the img, class and gives it a source
             let card = document.createElement("img");
             card.id = r.toString() + "-" + c.toString();
             card.src = `assets/images/playing-cards/${cardImage}.avif`;
-            card.onerror = () => {
-                console.error(`Failed to load image at ${card.src}`);
-            };
             card.classList.add("card");
             card.addEventListener("click", selectCard);
             document.getElementById("game-board").append(card);
@@ -63,6 +59,7 @@ function startGame() {
     }
     //once the game board has been created the hidecard function will be called at the same
     //to show the back of the cards.
+    setTimeout(1000);
     hideCards();
 }
 
@@ -82,11 +79,20 @@ function selectCard() {
         if (!card1Selected) {
             card1Selected = this;
 
-            let coords = card1Selected.id.split("-");
+            let coords = card1Selected.id.split("-"); // this creates a split mini array ["2", "1"]
             let r = parseInt(coords[0]);
             let c = parseInt(coords[1]);
 
-            card1Selected.src = board[r][c] + ".avif"
+            card1Selected.src = `assets/images/playing-cards/${board[r][c]}.avif`;
+        }
+        else if (!card2Selected && this != card1Selected) {
+            card2Selected = this;
+
+            let coords = card1Selected.id.split("-"); // this creates a split mini array ["2", "1"]
+            let r = parseInt(coords[0]);
+            let c = parseInt(coords[1]);
+
+            card2Selected.src = `assets/images/playing-cards/${board[r][c]}.avif`;
         }
     }
 }
