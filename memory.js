@@ -40,72 +40,85 @@ function shuffleCards() {
 }
 
 function startGame() {
-    // creating the board
     for (let r = 0; r < rows; r++) {
         let row = [];
         for (let c = 0; c < columns; c++) {
             let cardImage = cardSet.pop();
             row.push(cardImage);
 
-            //creates the img, class and gives it a source
-            let card = document.createElement("img");
-            card.id = r.toString() + "-" + c.toString();
-            card.src = `assets/images/playing-cards/${cardImage}.avif`;
+            // Create card container
+            let card = document.createElement("div");
+            card.id = r + "-" + c;
             card.classList.add("card");
             card.addEventListener("click", selectCard);
+
+            // Inner wrapper for flipping
+            let cardInner = document.createElement("div");
+            cardInner.classList.add("card-inner");
+
+            // Create front and back sides
+            let cardFront = document.createElement("div");
+            cardFront.classList.add("card-front"); // Back of the card, with default image
+
+            let cardBack = document.createElement("div");
+            cardBack.classList.add("card-back");
+            cardBack.style.backgroundImage = `url('assets/images/playing-cards/${cardImage}.avif')`; // Unique card face
+
+            // Append the front and back to card inner, and card inner to card
+            cardInner.appendChild(cardFront);
+            cardInner.appendChild(cardBack);
+            card.appendChild(cardInner);
+
             document.getElementById("game-board").append(card);
         }
         board.push(row);
     }
-    //once the game board has been created the hidecard function will be called at the same
-    //to show the back of the cards.
-    hideCards();
 }
+
+
 
 // this goes through the board to create the back of the card
 function hideCards() {
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
             let card = document.getElementById(r.toString() + "-" + c.toString());
-            card.src = "assets/images/back-card/pokemon-card-back-1.avif";
+            let cardBack = card.querySelector(".card-back");
+            cardBack.style.backgroundImage = "url('assets/images/back-card/pokemon-card-back-1.avif')";
         }
     }
 }
+
 
 function selectCard() {
-    
-    if(this.src.includes("assets/images/back-card/pokemon-card-back-1.avif")) {
+    if (!this.classList.contains("flipped")) {
         if (!card1Selected) {
+            // First card selected
             card1Selected = this;
-
-            let coords = card1Selected.id.split("-"); // this creates a split mini array ["2", "1"]
-            let r = parseInt(coords[0]);
-            let c = parseInt(coords[1]);
-
-            card1Selected.src = `assets/images/playing-cards/${board[r][c]}.avif`;
-        }
-        else if (!card2Selected && this != card1Selected) {
+            card1Selected.classList.add("flipped");
+        } else if (!card2Selected && this != card1Selected) {
+            // Second card selected
             card2Selected = this;
+            card2Selected.classList.add("flipped");
 
-            let coords = card2Selected.id.split("-"); // this creates a split mini array ["2", "1"]
-            let r = parseInt(coords[0]);
-            let c = parseInt(coords[1]);
-
-            card2Selected.src = `assets/images/playing-cards/${board[r][c]}.avif`;
-
-            //delay to let the player see the second card
-            setTimeout(update, 1000);
+            // Check if they match after a short delay
+            setTimeout(() => {
+                update();
+            }, 1000);
         }
     }
 }
 
-function update() {
-    // if the cards aren't the same they flipped both back to show the back-card
-    if (card1Selected.src != card2Selected.src) {
-        card1Selected.src = "assets/images/back-card/pokemon-card-back-1.avif";
-        card2Selected.src = "assets/images/back-card/pokemon-card-back-1.avif";
-    }
 
-    card1Selected = null;
-    card2Selected = null;
+function update() {
+    if (card1Selected && card2Selected) {
+        // If they don't match, flip them back
+        if (card1Selected.querySelector(".card-back").style.backgroundImage !== card2Selected.querySelector(".card-back").style.backgroundImage) {
+            card1Selected.classList.remove("flipped");
+            card2Selected.classList.remove("flipped");
+        }
+        
+        // Reset the selected cards
+        card1Selected = null;
+        card2Selected = null;
+    }
 }
