@@ -59,7 +59,6 @@ function startGame() {
     }
     //once the game board has been created the hidecard function will be called at the same
     //to show the back of the cards.
-    setTimeout(1000);
     hideCards();
 }
 
@@ -88,11 +87,25 @@ function selectCard() {
         else if (!card2Selected && this != card1Selected) {
             card2Selected = this;
 
-            let coords = card1Selected.id.split("-"); // this creates a split mini array ["2", "1"]
+            let coords = card2Selected.id.split("-"); // this creates a split mini array ["2", "1"]
             let r = parseInt(coords[0]);
             let c = parseInt(coords[1]);
 
             card2Selected.src = `assets/images/playing-cards/${board[r][c]}.avif`;
+
+            //delay to let the player see the second card
+            setTimeout(update, 1000);
         }
     }
+}
+
+function update() {
+    // if the cards aren't the same they flipped both back to show the back-card
+    if (card1Selected.src != card2Selected.src) {
+        card1Selected.src = "assets/images/back-card/pokemon-card-back-1.avif";
+        card2Selected.src = "assets/images/back-card/pokemon-card-back-1.avif";
+    }
+
+    card1Selected = null;
+    card2Selected = null;
 }
