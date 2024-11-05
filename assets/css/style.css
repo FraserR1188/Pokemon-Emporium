@@ -101,6 +101,20 @@ body {
     transform: translateY(4px);
 }
 
+/***********************************header*/
+
+.page-header {
+    font-size: 3rem;
+    font-weight: 800;
+    padding: 50px;
+    text-align: center;
+    background-color: #fefefe;
+    margin-left: 200px;
+    margin-right: 200px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
 /*****************memory card game styles*/
 
 #game-board {

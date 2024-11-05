@@ -11,13 +11,21 @@ var cardList = [
     "pikachu",
 ]
 
+//these variables are for creating the board
 var cardSet;
 var board = [];
 var rows = 4;
 var columns = 5;
 
+//these variables are for selecting the cards themselves
 var card1Selected;
 var card2Selected;
+
+//these variables are for the countdown timer
+var timer; // To store the interval
+var timeRemaining = 60; // Set countdown duration in seconds, e.g., 60 seconds
+var timerStarted = false; // Flag to start the timer on the first flip
+
 
 window.onload = function() {
     shuffleCards();
@@ -90,6 +98,12 @@ function hideCards() {
 
 
 function selectCard() {
+    //this starts the timer
+    if (!timerStarted) {
+        startTimer();
+        timerStarted = true;
+    }
+
     if (!this.classList.contains("flipped")) {
         if (!card1Selected) {
             // First card selected
@@ -108,6 +122,19 @@ function selectCard() {
     }
 }
 
+function startTimer() {
+    timer = setInterval(() => {
+        timeRemaining--;
+        document.getElementById("countdown-timer").innerText = `Time: ${timeRemaining}s`;
+
+        if (timeRemaining <= 0) {
+            clearInterval(timer);
+            alert("Time's up! Game over.");
+            resetGame(); // Call a function to reset the game
+        }
+    }, 1000); // Decrease time every second
+}
+
 
 function update() {
     if (card1Selected && card2Selected) {
@@ -121,4 +148,19 @@ function update() {
         card1Selected = null;
         card2Selected = null;
     }
+}
+
+function resetGame() {
+    clearInterval(timer); // Clear any ongoing timer
+    timeRemaining = 60; // Reset the time
+    document.getElementById("countdown-timer").innerText = `Time: ${timeRemaining}s`;
+    timerStarted = false; // Allow timer to start on the next card flip
+
+    // Reset flipped cards and re-shuffle board
+    card1Selected = null;
+    card2Selected = null;
+    board = [];
+    document.getElementById("game-board").innerHTML = ""; // Clear the board
+    shuffleCards(); // Re-shuffle and start a new game
+    startGame(); // Re-generate the game board
 }
