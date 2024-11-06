@@ -8,7 +8,7 @@ var cardList = [
     "machamp",
     "mewtwo",
     "pidgeotto",
-    "pikachu",
+    "pikachu"
 ]
 
 //these variables are for creating the board
@@ -21,15 +21,18 @@ var columns = 5;
 var card1Selected;
 var card2Selected;
 
-//these variables are for the countdown timer
+//these variables are for the countdown timer/time to beat
 var timer; // To store the interval
-var timeRemaining = 60; // Set countdown duration in seconds, e.g., 60 seconds
+var timeRemaining = 90; // Set countdown duration in seconds, e.g., 60 seconds
 var timerStarted = false; // Flag to start the timer on the first flip
-
+var elapsedTime = 0; //track time elapsed in seconds
+var bestTime = null ; //retrieves best time if available
+var matches = 0; // Variable to track matched pairs
 
 window.onload = function() {
     shuffleCards();
     startGame();
+    updateBestTimeDisplay();
 }
 
 function shuffleCards() {
@@ -83,8 +86,6 @@ function startGame() {
     }
 }
 
-
-
 // this goes through the board to create the back of the card
 function hideCards() {
     for (let r = 0; r < rows; r++) {
@@ -95,7 +96,6 @@ function hideCards() {
         }
     }
 }
-
 
 function selectCard() {
     //this starts the timer
@@ -113,10 +113,10 @@ function selectCard() {
             // Second card selected
             card2Selected = this;
             card2Selected.classList.add("flipped");
-
+            checkCardMatch();
             // Check if they match after a short delay
             setTimeout(() => {
-                update();
+                checkCardMatch();
             }, 1000);
         }
     }
@@ -125,42 +125,71 @@ function selectCard() {
 function startTimer() {
     timer = setInterval(() => {
         timeRemaining--;
+        elapsedTime++;
         document.getElementById("countdown-timer").innerText = `Time: ${timeRemaining}s`;
 
         if (timeRemaining <= 0) {
             clearInterval(timer);
-            alert("Time's up! Game over.");
+            alert("Time's up! Game over. Please reset the game by using the button below!");
             resetGame(); // Call a function to reset the game
         }
     }, 1000); // Decrease time every second
 }
 
-
-function update() {
+function checkCardMatch() {
     if (card1Selected && card2Selected) {
-        // If they don't match, flip them back
-        if (card1Selected.querySelector(".card-back").style.backgroundImage !== card2Selected.querySelector(".card-back").style.backgroundImage) {
-            card1Selected.classList.remove("flipped");
-            card2Selected.classList.remove("flipped");
+        if (card1Selected.querySelector(".card-back").style.backgroundImage === card2Selected.querySelector(".card-back").style.backgroundImage) {
+            matches++;
+
+            if (matches === cardSet.length / 2) {
+                clearInterval(timer);
+
+                // Update best time if this is a new best
+                if (!bestTime || timeRemaining > bestTime) {
+                    bestTime = timeRemaining;
+                    updateBestTimeDisplay();
+                    alert(`Congratulations! New best time: ${bestTime}s`);
+                } else {
+                    alert(`Game complete! Time: ${timeRemaining}s`);
+                }
+
+                return;
+            }
+
+            card1Selected = null;
+            card2Selected = null;
+
+        } else {
+            setTimeout(() => {
+                card1Selected.classList.remove("flipped");
+                card2Selected.classList.remove("flipped");
+                card1Selected = null;
+                card2Selected = null;
+            }, 1000);
         }
-        
-        // Reset the selected cards
-        card1Selected = null;
-        card2Selected = null;
     }
 }
 
-function resetGame() {
-    clearInterval(timer); // Clear any ongoing timer
-    timeRemaining = 60; // Reset the time
-    document.getElementById("countdown-timer").innerText = `Time: ${timeRemaining}s`;
-    timerStarted = false; // Allow timer to start on the next card flip
 
-    // Reset flipped cards and re-shuffle board
+function updateBestTimeDisplay() {
+    if (bestTime !== null) {
+        document.getElementById("best-time").innerText = `Best Time: ${bestTime}s`;
+    }
+}
+
+
+
+function resetGame() {
+    clearInterval(timer);
+    timeRemaining = 90;
+    elapsedTime = 0;
+    matches = 0; // Reset match counter
+    document.getElementById("countdown-timer").innerText = `Time: ${timeRemaining}s`;
+    timerStarted = false;
     card1Selected = null;
     card2Selected = null;
     board = [];
     document.getElementById("game-board").innerHTML = ""; // Clear the board
     shuffleCards(); // Re-shuffle and start a new game
-    startGame(); // Re-generate the game board
+    startGame();
 }

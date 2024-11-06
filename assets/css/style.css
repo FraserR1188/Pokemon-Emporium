@@ -118,7 +118,7 @@ body {
 /*****************memory card game styles*/
 
 #game-board {
-    height: 680x;
+    height: 680px;
     width: 400px;
     background-color: #ff0000;
     border: 10px solid black;
