@@ -21,13 +21,13 @@ var columns = 5;
 var card1Selected;
 var card2Selected;
 
-//these variables are for the countdown timer/time to beat
+//these variables are for the timer/time to beat
 var timer; // To store the interval
-var timeRemaining = 90; // Set countdown duration in seconds, e.g., 60 seconds
 var timerStarted = false; // Flag to start the timer on the first flip
 var elapsedTime = 0; //track time elapsed in seconds
 var bestTime = null ; //retrieves best time if available
 var matches = 0; // Variable to track matched pairs
+var totalPairs;
 
 window.onload = function() {
     shuffleCards();
@@ -36,18 +36,18 @@ window.onload = function() {
 }
 
 function shuffleCards() {
-    //this creates two of each card
+    // this creates two of each card
     cardSet = cardList.concat(cardList);
-    console.log(cardSet);
-    //this then shuffles the cards
+    totalPairs = cardSet.length / 2; // Store the total number of pairs
+
+    // Shuffle the cards
     for (let i = 0; i < cardSet.length; i++) {
         let c = Math.floor(Math.random() * cardSet.length);
-        // we then swap the cards around
+        // Swap the cards around
         let swap = cardSet[i];
         cardSet[i] = cardSet[c];
         cardSet[c] = swap;
     }
-    console.log(cardSet);
 }
 
 function startGame() {
@@ -98,7 +98,7 @@ function hideCards() {
 }
 
 function selectCard() {
-    //this starts the timer
+    // Start the timer when the first card is flipped
     if (!timerStarted) {
         startTimer();
         timerStarted = true;
@@ -113,7 +113,7 @@ function selectCard() {
             // Second card selected
             card2Selected = this;
             card2Selected.classList.add("flipped");
-            checkCardMatch();
+
             // Check if they match after a short delay
             setTimeout(() => {
                 checkCardMatch();
@@ -122,69 +122,65 @@ function selectCard() {
     }
 }
 
+
 function startTimer() {
     timer = setInterval(() => {
-        timeRemaining--;
         elapsedTime++;
-        document.getElementById("countdown-timer").innerText = `Time: ${timeRemaining}s`;
-
-        if (timeRemaining <= 0) {
-            clearInterval(timer);
-            alert("Time's up! Game over. Please reset the game by using the button below!");
-            resetGame(); // Call a function to reset the game
-        }
-    }, 1000); // Decrease time every second
+        document.getElementById("timer").innerText = `${elapsedTime}s`;
+    }, 1000); // Update every second
 }
+
 
 function checkCardMatch() {
     if (card1Selected && card2Selected) {
+        // Check if the selected cards match
         if (card1Selected.querySelector(".card-back").style.backgroundImage === card2Selected.querySelector(".card-back").style.backgroundImage) {
+            // Increment match counter
             matches++;
 
-            if (matches === cardSet.length / 2) {
-                clearInterval(timer);
+            // Check if all matches are found (game complete)
+            if (matches === totalPairs) { // Assuming two cards per pair
+                clearInterval(timer); // Stop the timer
 
-                // Update best time if this is a new best
-                if (!bestTime || timeRemaining > bestTime) {
-                    bestTime = timeRemaining;
-                    updateBestTimeDisplay();
-                    alert(`Congratulations! New best time: ${bestTime}s`);
-                } else {
-                    alert(`Game complete! Time: ${timeRemaining}s`);
-                }
-
-                return;
+                // Display final elapsed time
+                alert(`Congratulations! You completed the game in ${elapsedTime} seconds!`);
+                updateBestTimeDisplay();
+                resetGame();
+                return; // Exit the function to prevent further code execution
             }
 
+            // Reset selected cards for the next turn
             card1Selected = null;
             card2Selected = null;
 
         } else {
+            // If the cards don't match, flip them back after a delay
             setTimeout(() => {
                 card1Selected.classList.remove("flipped");
                 card2Selected.classList.remove("flipped");
+
+                // Reset selected cards
                 card1Selected = null;
                 card2Selected = null;
-            }, 1000);
+            }, 1000); // Delay to show both cards for a moment
         }
     }
 }
 
 
+
 function updateBestTimeDisplay() {
-    if (bestTime !== null) {
-        document.getElementById("best-time").innerText = `Best Time: ${bestTime}s`;
+    if (!bestTime || elapsedTime < bestTime) {
+        bestTime = elapsedTime;
+        document.getElementById("best-time").innerText = `${bestTime}s`;
     }
 }
 
-
-
 function resetGame() {
     clearInterval(timer);
-    timeRemaining = 90;
     elapsedTime = 0;
     matches = 0; // Reset match counter
-    document.getElementById("countdown-timer").innerText = `Time: ${timeRemaining}s`;
+    document.getElementById("countdown-timer").innerText = `${elapsedTime}s`;
     timerStarted = false;
     card1Selected = null;
     card2Selected = null;
@@ -193,3 +189,4 @@ function resetGame() {
     shuffleCards(); // Re-shuffle and start a new game
     startGame();
 }
+
