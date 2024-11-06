@@ -159,7 +159,7 @@ body {
 }
 
 .card-front { 
-    background-image: url('assets/images/back-card/pokemon-card-back-1.avif'); /* Back of the card */ 
+    background-image: url("/assets/images/back-card/pokemon-card-back-1.avif"); /* Back of the card */ 
     background-color: #333; /* Fallback color */ 
 } 
     
