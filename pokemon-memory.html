@@ -8,10 +8,11 @@
 </head>
 <body class="background-image">
     <h1 class="page-header">Pokemon Memory Card Game</h1>
-    <div>Timer:<span id="timer">0s</span></div>
-    <div>Time to beat:<span id="best-time"></span></div>
+    <button class="main-button" onclick="window.location.href = 'index.html'">Main Menu</button>
+    <div class="time-area">Timer:<span id="timer">0s</span></div>
+    <div class="time-area">Time to beat:<span id="best-time"></span></div>
+    <button class="main-button id="restart-button" onclick="resetGame()">Restart Game</button>
     <div id="game-board"></div>
-    <button id="restart-button" onclick="resetGame()">Restart Game</button>
     <script src="memory.js"></script>
 </body>
 </html>

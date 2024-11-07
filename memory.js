@@ -29,6 +29,9 @@ var bestTime = null ; //retrieves best time if available
 var matches = 0; // Variable to track matched pairs
 var totalPairs;
 
+
+var gameOver = false; // New flag to control game state
+
 window.onload = function() {
     shuffleCards();
     startGame();
@@ -98,6 +101,9 @@ function hideCards() {
 }
 
 function selectCard() {
+    // Don't allow selection if the game is over
+    if (gameOver) return;
+
     // Start the timer when the first card is flipped
     if (!timerStarted) {
         startTimer();
@@ -123,6 +129,7 @@ function selectCard() {
 }
 
 
+
 function startTimer() {
     timer = setInterval(() => {
         elapsedTime++;
@@ -141,13 +148,15 @@ function checkCardMatch() {
             // Check if all matches are found (game complete)
             if (matches === totalPairs) { // Assuming two cards per pair
                 clearInterval(timer); // Stop the timer
-
+                gameOver = true; // Set gameOver to true
+            
                 // Display final elapsed time
                 alert(`Congratulations! You completed the game in ${elapsedTime} seconds!`);
                 updateBestTimeDisplay();
-                resetGame();
+            
                 return; // Exit the function to prevent further code execution
             }
+            
 
             // Reset selected cards for the next turn
             card1Selected = null;
@@ -177,16 +186,28 @@ function updateBestTimeDisplay() {
 }
 
 function resetGame() {
+    // Clear the timer if it is running
     clearInterval(timer);
+    timer = null; // Ensure the timer variable is reset
+
+    // Reset the timer variables
     elapsedTime = 0;
-    matches = 0; // Reset match counter
-    document.getElementById("countdown-timer").innerText = `${elapsedTime}s`;
     timerStarted = false;
+    gameOver = false;
+    document.getElementById("timer").innerText = `${elapsedTime}s`;
+
+    // Reset the match counter and game board state
+    matches = 0; // Reset match counter
     card1Selected = null;
     card2Selected = null;
+
+    // Clear the board array and reset the UI
     board = [];
-    document.getElementById("game-board").innerHTML = ""; // Clear the board
-    shuffleCards(); // Re-shuffle and start a new game
-    startGame();
+    document.getElementById("game-board").innerHTML = ""; // Clear the current game board
+
+    // Re-shuffle and recreate the cards
+    shuffleCards(); // Re-shuffle the cards
+    startGame();    // Start the game again
 }
+
 

@@ -104,9 +104,9 @@ body {
 /***********************************header*/
 
 .page-header {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 800;
-    padding: 50px;
+    padding: 20px;
     text-align: center;
     background-color: #fefefe;
     margin-left: 200px;
@@ -167,4 +167,17 @@ body {
     background-size: cover; 
     backface-visibility: hidden; 
     transform: rotateY(180deg); /* Position for the front face */
+}
+
+.time-area {
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 10px;
+    text-align: center;
+    background-color: #fefefe;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
 }
