@@ -10,7 +10,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
 </head>
 <body>
+    <h1>Pokémon Battle Simulator</h1>
 
+    <!-- Pokémon Selection -->
+    <div class="selection">
+        <label for="pokemon1">Choose Pokémon 1:</label>
+        <select id="pokemon1">
+            <option value="">Select a Pokémon</option>
+        </select>
+
+        <label for="pokemon2">Choose Pokémon 2:</label>
+        <select id="pokemon2">
+            <option value="">Select a Pokémon</option>
+        </select>
+    </div>
+
+    <!-- Battle Arena -->
+    <div class="battle-arena">
+        <!-- Pokémon 1 Display -->
+        <div id="pokemon1-container" class="pokemon-container">
+            <h2 id="pokemon1-name">Pokémon 1</h2>
+            <img id="pokemon1-img" src="" alt="Pokémon 1 Image">
+            <div class="hp-bar-container">
+                <div id="pokemon1-hp" class="hp-bar">100% HP</div>
+            </div>
+        </div>
+
+        <!-- Pokémon 2 Display -->
+        <div id="pokemon2-container" class="pokemon-container">
+            <h2 id="pokemon2-name">Pokémon 2</h2>
+            <img id="pokemon2-img" src="" alt="Pokémon 2 Image">
+            <div class="hp-bar-container">
+                <div id="pokemon2-hp" class="hp-bar">100% HP</div>
+            </div>
+        </div>
+    </div>
+    <button id="battle-btn" disabled>Battle!</button>
+    <div id="battle-logs" class="logs"></div>
     <script src="battle.js"></script>
 </body>
 </html>
