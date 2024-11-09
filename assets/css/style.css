@@ -181,3 +181,66 @@ body {
     border: 2px solid black;
     border-radius: 10px;
 }
+
+/**************************pokemon-battle*/
+
+.selection {
+    margin-bottom: 20px;
+}
+
+.selection label, .selection select {
+    margin: 5px;
+}
+
+.battle-arena {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.pokemon-container {
+    width: 200px;
+    margin: 0 20px;
+    text-align: center;
+}
+
+.pokemon-container img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.hp-bar-container {
+    width: 100%;
+    background-color: #ccc;
+    border: 1px solid #999;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.hp-bar {
+    height: 20px;
+    background-color: green;
+    color: white;
+    line-height: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.logs {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 200px;
+    overflow-y: auto;
+}
+
+button#battle-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+}
