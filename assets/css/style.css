@@ -16,6 +16,9 @@ body {
     align-items: center;
     flex-direction: column;
     margin-top: 50px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 #index-pokemon-header {
@@ -120,12 +123,20 @@ body {
 #footer {
     background-color: #555; 
     color: #fff; 
-    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     border-top: 2px solid black;
 }
+
+.margin-footer {
+    margin-top: auto;
+}
+
+.footer-index {
+    position: fixed;
+}
+
 
 #footer-container {
     display: flex; 
@@ -148,7 +159,7 @@ body {
 .footer-box {
     flex: 1; 
     min-width: 200px;
-    font-size: 1 rem;
+    font-size: 1em;
     text-align: center;
 }
 
@@ -357,17 +368,8 @@ button#battle-btn {
     #best-time {
         font-size: 0.9em; /* Make text smaller for very tiny devices */
     }
-}
 
-@media (max-width: 600px) {
-    .battle-arena {
-        flex-direction: column;
-        align-items: center;
+    .footer-box {
+        font-size: 0.8em;
     }
-
-    .pokemon-box {
-        width: 100%;
-        max-width: 300px;
-    }
-
 }
