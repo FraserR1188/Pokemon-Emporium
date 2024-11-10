@@ -48,13 +48,36 @@ var bestTime = null ; //retrieves best time if available
 var matches = 0; // Variable to track matched pairs
 var totalPairs;
 
-
 var gameOver = false; // New flag to control game state
 
 window.onload = function() {
     shuffleCards();
     startGame();
     updateBestTimeDisplay();
+    adjustCardSize(); // Adjust card size on load
+
+    // Add event listener for window resize
+    window.addEventListener("resize", adjustCardSize);
+}
+
+function adjustCardSize() {
+    let width = window.innerWidth;
+
+    // Adjust card size based on window width
+    if (width <= 400) {
+        document.querySelectorAll(".card").forEach(card => {
+            card.style.height = "80px";
+            card.style.width = "55px";
+        });
+    }
+    if (width <= 300) {
+        document.querySelectorAll(".card").forEach(card => {
+            card.style.height = "60px";
+            card.style.width = "45px";
+        });
+    }
+    // If the screen width is greater than 600px, reset to default size
+
 }
 
 function shuffleCards() {
