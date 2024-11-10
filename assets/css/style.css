@@ -120,7 +120,6 @@ body {
 #footer {
     background-color: #555; 
     color: #fff; 
-    padding: 10px 10px;
     position: fixed;
     left: 0;
     bottom: 0;
@@ -130,13 +129,17 @@ body {
 
 #footer-container {
     display: flex; 
-    justify-content: space-between; 
+    justify-content: space-between;
+    align-content: center; 
     flex-wrap: wrap;
 }
 
-#footer-links > a {
+#footer-links ul {
+    display: flex;
     list-style: none; /* Remove default bullets */
-    display: flex; /* Use flex to align items horizontally */
+}
+
+#footer-links > li {
     gap: 10px; /* Add space between list items */
     padding: 0; /* Remove default padding of the <ul> */
     margin: 0; /* Remove default margin of the <ul> */
@@ -145,6 +148,8 @@ body {
 .footer-box {
     flex: 1; 
     min-width: 200px;
+    font-size: 1 rem;
+    text-align: center;
 }
 
 #footer-links > a,
@@ -155,7 +160,6 @@ body {
 
 #footer > hr {
     border-color: #555; 
-    margin: 20px 0;
 }
 
 #footer > p {
@@ -228,50 +232,6 @@ body {
     border-radius: 10px;
 }
 
-/* Responsive Styles for Smaller Screens */
-
-@media (max-width: 400px) {
-    #index-pokemon-header {
-        font-size: 1.5rem;
-    }
-    #game-board {
-        gap: 3px; /* Reduce the gap between cards */
-    }
-
-    .card {
-        height: 80px; /* Reduce card height */
-        width: 55px; /* Reduce card width for smaller screens */
-    }
-
-    .page-header {
-        font-size: 1.5em; /* Reduce header font size for small screens */
-    }
-
-    #timer,
-    #best-time {
-        font-size: 1em; /* Reduce the font size to better fit smaller screens */
-    }
-}
-
-@media (max-width: 300px) {
-    #game-board {
-        gap: 2px; /* Reduce gap even more for very small screens */
-    }
-
-    .card {
-        height: 60px; /* Further reduce card size */
-        width: 45px; /* Make the cards smaller for tiny screens */
-    }
-
-    .page-header {
-        font-size: 1.2em; /* Reduce header font size even further */
-    }
-
-    #timer,
-    #best-time {
-        font-size: 0.9em; /* Make text smaller for very tiny devices */
-    }
-}
 
 
 /**************************pokemon-battle*/
@@ -409,4 +369,5 @@ button#battle-btn {
         width: 100%;
         max-width: 300px;
     }
+
 }
