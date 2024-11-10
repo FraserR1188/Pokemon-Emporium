@@ -5,7 +5,8 @@
 .background-image {
     background-image: url("../images/pokemon-bg-1.jpg");
     background-size: cover; 
-    background-repeat: no-repeat;
+    max-width: 100%;
+    height: 100%;
 }
 
 body {
@@ -18,11 +19,10 @@ body {
 }
 
 #index-pokemon-header {
-    font-size: 4rem;
-    font-weight: 800;
-    padding: 50px;
+    font-size: 2.2rem;
+    padding: 20px;
     text-align: center;
-    background-color: #fefefe;
+    background-color: #555;
     margin-left: 200px;
     margin-right: 200px;
     border: 2px solid black;
@@ -115,6 +115,53 @@ body {
     border-radius: 10px;
 }
 
+/**********************************footer*/
+
+#footer {
+    background-color: #555; 
+    color: #fff; 
+    padding: 10px 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid black;
+}
+
+#footer-container {
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap;
+}
+
+#footer-links > a {
+    list-style: none; /* Remove default bullets */
+    display: flex; /* Use flex to align items horizontally */
+    gap: 10px; /* Add space between list items */
+    padding: 0; /* Remove default padding of the <ul> */
+    margin: 0; /* Remove default margin of the <ul> */
+}
+
+.footer-box {
+    flex: 1; 
+    min-width: 200px;
+}
+
+#footer-links > a,
+#footer > p > a {
+    color: #fff; 
+    margin-right: 10px;
+}
+
+#footer > hr {
+    border-color: #555; 
+    margin: 20px 0;
+}
+
+#footer > p {
+    text-align: center;
+}
+
 /*****************memory card game styles*/
 
 /* Base Styles for Larger Screens */
@@ -181,13 +228,12 @@ body {
     border-radius: 10px;
 }
 
-#timer {
-    
-}
-
 /* Responsive Styles for Smaller Screens */
 
 @media (max-width: 400px) {
+    #index-pokemon-header {
+        font-size: 1.5rem;
+    }
     #game-board {
         gap: 3px; /* Reduce the gap between cards */
     }
@@ -296,6 +342,63 @@ button#battle-btn {
 }
 
 /* Responsive adjustments */
+@media (max-width: 600px) {
+    .battle-arena {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pokemon-box {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Responsive Styles for Smaller Screens */
+
+@media (max-width: 400px) {
+    #index-pokemon-header {
+        font-size: 1.5rem;
+    }
+    #game-board {
+        gap: 3px; /* Reduce the gap between cards */
+    }
+
+    .card {
+        height: 80px; /* Reduce card height */
+        width: 55px; /* Reduce card width for smaller screens */
+    }
+
+    .page-header {
+        font-size: 1.5em; /* Reduce header font size for small screens */
+    }
+
+    #timer,
+    #best-time {
+        font-size: 1em; /* Reduce the font size to better fit smaller screens */
+    }
+}
+
+@media (max-width: 300px) {
+    #game-board {
+        gap: 2px; /* Reduce gap even more for very small screens */
+    }
+
+    .card {
+        height: 60px; /* Further reduce card size */
+        width: 45px; /* Make the cards smaller for tiny screens */
+    }
+
+    .page-header {
+        font-size: 1.2em; /* Reduce header font size even further */
+    }
+
+    #timer,
+    #best-time {
+        font-size: 0.9em; /* Make text smaller for very tiny devices */
+    }
+}
+
 @media (max-width: 600px) {
     .battle-arena {
         flex-direction: column;
