@@ -370,7 +370,13 @@ button#battle-btn {
         font-size: 0.9em; /* Make text smaller for very tiny devices */
     }
 
-    .footer-box {
-        font-size: 0.8em;
+    .footer-box p {
+        font-size: 0.5em;
+    }
+    .footer-box h3 {
+        font-size: 0.7em;
+    }
+    #footer p {
+        font-size: 0.5em;
     }
 }
