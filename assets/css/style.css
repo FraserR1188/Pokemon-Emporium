@@ -148,6 +148,7 @@ body {
 #footer-links ul {
     display: flex;
     list-style: none; /* Remove default bullets */
+    justify-content: center;
 }
 
 #footer-links > li {
