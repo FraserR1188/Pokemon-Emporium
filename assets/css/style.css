@@ -135,6 +135,8 @@ body {
 
 .footer-index {
     position: fixed;
+    width: 100%;
+    height: auto;
 }
 
 
@@ -324,9 +326,30 @@ button#battle-btn {
         width: 100%;
         max-width: 300px;
     }
+    .footer-box p {
+        font-size: 1em;
+    }
+    .footer-box h3 {
+        font-size: 1.2em;
+    }
+    #footer p {
+        font-size: 1em;
+    }
 }
 
 /* Responsive Styles for Smaller Screens */
+
+@media (max-width: 600px) {
+    .footer-box p {
+        font-size: 0.8em;
+    }
+    .footer-box h3 {
+        font-size: 1em;
+    }
+    #footer p {
+        font-size: 0.8em;
+    }
+}
 
 @media (max-width: 400px) {
     #index-pokemon-header {
@@ -348,6 +371,15 @@ button#battle-btn {
     #timer,
     #best-time {
         font-size: 1em; /* Reduce the font size to better fit smaller screens */
+    }
+    .footer-box p {
+        font-size: 0.2em;
+    }
+    .footer-box h3 {
+        font-size: 0.9em;
+    }
+    #footer p {
+        font-size: 0.7em;
     }
 }
 
