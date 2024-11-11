@@ -111,7 +111,7 @@ body {
     font-weight: 800;
     padding: 20px;
     text-align: center;
-    background-color: #fefefe;
+    background-color: #555;
     margin-left: 200px;
     margin-right: 200px;
     border: 2px solid black;
@@ -123,20 +123,28 @@ body {
 #footer {
     background-color: #555; 
     color: #fff; 
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    border-top: 2px solid black;
+    border: 2px solid black;
+    border-radius: 10px;
 }
 
 .margin-footer {
     margin-top: auto;
+    width: 95%
 }
 
 .footer-index {
+    width: 95%;
+    margin: 0 auto;
     position: fixed;
-    width: 100%;
-    height: auto;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #f5f5f5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    text-align: center;
 }
 
 
@@ -171,15 +179,6 @@ body {
     color: #fff; 
     margin-right: 10px;
 }
-
-#footer > hr {
-    border-color: #555; 
-}
-
-#footer > p {
-    text-align: center;
-}
-
 /*****************memory card game styles*/
 
 /* Base Styles for Larger Screens */
@@ -227,7 +226,7 @@ body {
 }
 
 .card-front { 
-    background-image: url('assets/images/back-card/pokemon-card-back-1.avif'); /* Back of the card */ 
+    background-image: url('/assets/images/back-card/pokemon-card-back-1.avif'); /* Back of the card */ 
     background-color: #333; /* Fallback color */ 
 } 
 
