@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let userPokemonQueue = [];
     let opponentPokemonQueue = [];
     let userCurrentPokemon, opponentCurrentPokemon;
+    let battleOver = false; // Flag to indicate if the battle is over
 
     async function fetchPokemon(pokemonName) {
         try {
@@ -79,7 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (selectedPokemon) {
                 const pokemonData = await fetchPokemon(selectedPokemon);
                 if (pokemonData) {
-                    userPokemonQueue.push(extractBattleStats(pokemonData));
+                    const battleStats = await extractBattleStats(pokemonData);
+                    userPokemonQueue.push(battleStats);
                 }
             }
         }
@@ -99,7 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 const randomPokemonName = pokemonList[randomIndex].name;
                 const pokemonData = await fetchPokemon(randomPokemonName);
                 if (pokemonData) {
-                    opponentPokemonQueue.push(extractBattleStats(pokemonData));
+                    const battleStats = await extractBattleStats(pokemonData);
+                    opponentPokemonQueue.push(battleStats);
                 }
             }
 
@@ -110,7 +113,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function extractBattleStats(pokemonData) {
+    async function extractBattleStats(pokemonData) {
+        // Filter moves to only include level-up moves
+        const levelUpMoves = pokemonData.moves.filter(moveEntry => 
+            moveEntry.version_group_details.some(detail => detail.move_learn_method.name === 'level-up')
+        );
+
+        // Randomly select four moves from the filtered list
+        const selectedMoves = levelUpMoves
+            .sort(() => 0.5 - Math.random()) // Shuffle moves
+            .slice(0, 4)                     // Take the first four moves
+            .map(move => ({
+                name: move.move.name.replace('-', ' '),
+                url: move.move.url
+            }));
+
         return {
             name: pokemonData.name.charAt(0).toUpperCase() + pokemonData.name.slice(1),
             hp: pokemonData.stats.find(s => s.stat.name === 'hp').base_stat,
@@ -118,10 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
             attack: pokemonData.stats.find(s => s.stat.name === 'attack').base_stat,
             defense: pokemonData.stats.find(s => s.stat.name === 'defense').base_stat,
             speed: pokemonData.stats.find(s => s.stat.name === 'speed').base_stat,
-            moves: pokemonData.moves.slice(0, 4).map(move => ({
-                name: move.move.name.replace('-', ' '),
-                url: move.move.url
-            })),
+            moves: selectedMoves,
             sprite: pokemonData.sprites.front_default || ""
         };
     }
@@ -176,6 +190,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async function playerTurn(selectedMove) {
+        if (battleOver) return; // Prevent any further action if the battle is over
+
         const attacker = userCurrentPokemon;
         const defender = opponentCurrentPokemon;
 
@@ -193,6 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 updatePokemonDisplay(opponentCurrentPokemon, 'opponent-pokemon-name', 'opponent-pokemon-img', 'opponent-pokemon-hp');
             } else {
                 logBattleEvent("Congratulations! You have defeated all opponent Pokémon!");
+                endBattle("User");
                 return;
             }
         }
@@ -201,6 +218,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async function opponentTurn() {
+        if (battleOver) return; // Prevent any further action if the battle is over
+
         const attacker = opponentCurrentPokemon;
         const defender = userCurrentPokemon;
 
@@ -220,8 +239,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 displayUserMoves();
             } else {
                 logBattleEvent("All your Pokémon have fainted! You lose!");
+                endBattle("Opponent");
             }
         }
+    }
+
+    function endBattle(winner) {
+        battleOver = true;
+        logBattleEvent(`${winner} has won the battle!`);
+        disableMoveButtons();
+    }
+
+    function disableMoveButtons() {
+        const moveButtons = userMovesContainer.querySelectorAll('button');
+        moveButtons.forEach(button => {
+            button.disabled = true;
+        });
     }
 
     async function fetchMovePower(moveUrl) {
@@ -257,6 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Clear Pokémon queues
         userPokemonQueue = [];
         opponentPokemonQueue = [];
+        battleOver = false; // Reset the battle over flag
 
         // Clear Pokémon displays
         clearPokemonDisplay('user-pokemon-name', 'user-pokemon-img', 'user-pokemon-hp');
