@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const pokemonDropdowns = [document.getElementById('pokemon1'), document.getElementById('pokemon2'), document.getElementById('pokemon3')];
+    const pokemonPreviews = [document.getElementById('pokemon1-preview'), document.getElementById('pokemon2-preview'), document.getElementById('pokemon3-preview')];
     const battleLogs = document.getElementById('battle-logs');
     const userMovesContainer = document.getElementById('user-moves');
     const resetButton = document.getElementById('reset-battle-btn');
@@ -47,7 +48,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    async function handleUserSelection() {
+    async function handleUserSelection(dropdownIndex) {
+        const dropdown = pokemonDropdowns[dropdownIndex];
+        const selectedPokemon = dropdown.value;
+        const previewImage = pokemonPreviews[dropdownIndex];
+
+        if (selectedPokemon) {
+            const pokemonData = await fetchPokemon(selectedPokemon);
+            if (pokemonData) {
+                previewImage.src = pokemonData.sprites.front_default;
+                previewImage.style.display = "block"; // Show the preview image
+            }
+        } else {
+            // If no Pokémon is selected, hide the preview image
+            previewImage.style.display = "none";
+        }
+
+        // After all selections are made, set up the battle
+        await prepareUserPokemonQueue();
+        if (userPokemonQueue.length === 3) {
+            await randomizeOpponentPokemon();
+            startBattle();
+        }
+    }
+
+    async function prepareUserPokemonQueue() {
         userPokemonQueue = [];
         for (let dropdown of pokemonDropdowns) {
             const selectedPokemon = dropdown.value;
@@ -57,11 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     userPokemonQueue.push(extractBattleStats(pokemonData));
                 }
             }
-        }
-
-        if (userPokemonQueue.length === 3) {
-            await randomizeOpponentPokemon();
-            startBattle();
         }
     }
 
@@ -233,31 +253,37 @@ document.addEventListener("DOMContentLoaded", () => {
         pokemonDropdowns.forEach(dropdown => {
             dropdown.value = "";
         });
-    
+
         // Clear Pokémon queues
         userPokemonQueue = [];
         opponentPokemonQueue = [];
-    
+
         // Clear Pokémon displays
         clearPokemonDisplay('user-pokemon-name', 'user-pokemon-img', 'user-pokemon-hp');
         clearPokemonDisplay('opponent-pokemon-name', 'opponent-pokemon-img', 'opponent-pokemon-hp');
-    
+
         // Clear moves
         userMovesContainer.innerHTML = "";
-    
+
         // Clear battle logs
         battleLogs.innerHTML = "";
+
+        // Hide Pokémon preview images
+        pokemonPreviews.forEach(preview => {
+            preview.src = "";
+            preview.style.display = "none";
+        });
     }
-    
+
     function clearPokemonDisplay(nameId, imgId, hpId) {
         // Set default text for name
         const nameElem = document.getElementById(nameId);
         if (nameElem) nameElem.textContent = "Pokémon";
-    
+
         // Clear image
         const imgElem = document.getElementById(imgId);
         if (imgElem) imgElem.src = "";
-    
+
         // Clear HP bar
         const hpBar = document.getElementById(hpId);
         if (hpBar) {
@@ -266,10 +292,9 @@ document.addEventListener("DOMContentLoaded", () => {
             hpBar.style.backgroundColor = "#ccc"; // Set back to default gray color
         }
     }
-    
 
     resetButton.addEventListener('click', resetBattle);
-    pokemonDropdowns.forEach(dropdown => dropdown.addEventListener('change', handleUserSelection));
+    pokemonDropdowns.forEach((dropdown, index) => dropdown.addEventListener('change', () => handleUserSelection(index)));
     populateDropdowns();
 });
 

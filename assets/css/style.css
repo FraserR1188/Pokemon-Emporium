@@ -254,6 +254,25 @@ body {
 
 /**************************pokemon-battle*/
 
+.pokemon-selection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.pokemon-selection label {
+    margin-bottom: 5px;
+}
+
+.pokemon-preview {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-top: 5px;
+    display: none; /* Hidden by default */
+}
+
 .battle-arena {
     display: flex;
     flex-wrap: wrap;
@@ -272,7 +291,7 @@ body {
     margin: 10px;
 }
 
-.pokemon-box label, .pokemon-box select {
+.pokemon-box label {
     margin: 5px 0;
 }
 
@@ -325,7 +344,9 @@ button#battle-btn {
     margin-top: 20px;
 }
 
-/* Responsive adjustments */
+
+
+/*****************************Responsive adjustments */
 @media (max-width: 600px) {
     .battle-arena {
         flex-direction: column;
