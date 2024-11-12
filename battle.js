@@ -293,47 +293,47 @@ document.addEventListener("DOMContentLoaded", () => {
         pokemonDropdowns.forEach(dropdown => {
             dropdown.value = "";
         });
-
+    
         // Clear Pokémon queues
         userPokemonQueue = [];
         opponentPokemonQueue = [];
         battleOver = false; // Reset the battle over flag
-
+    
         // Clear Pokémon displays
-        clearPokemonDisplay('user-pokemon-name', 'user-pokemon-img', 'user-pokemon-hp');
-        clearPokemonDisplay('opponent-pokemon-name', 'opponent-pokemon-img', 'opponent-pokemon-hp');
-
+        clearPokemonDisplay('user-pokemon-name', 'user-pokemon-img', 'user-pokemon-hp', "User Pokémon");
+        clearPokemonDisplay('opponent-pokemon-name', 'opponent-pokemon-img', 'opponent-pokemon-hp', "Opponent Pokémon");
+    
         // Clear moves
         userMovesContainer.innerHTML = "";
-
+    
         // Clear battle logs
         battleLogs.innerHTML = "";
-
+    
         // Hide Pokémon preview images
         pokemonPreviews.forEach(preview => {
             preview.src = "";
             preview.style.display = "none";
         });
     }
-
-    function clearPokemonDisplay(nameId, imgId, hpId) {
+    
+    function clearPokemonDisplay(nameId, imgId, hpId, defaultName) {
         // Set default text for name
         const nameElem = document.getElementById(nameId);
-        if (nameElem) nameElem.textContent = "Pokémon";
-
+        if (nameElem) nameElem.textContent = defaultName;
+    
         // Set image back to Pokéball
         const imgElem = document.getElementById(imgId);
         if (imgElem) {
             imgElem.src = "./assets/images/pokeball.png"; // Set back to Pokéball placeholder
             imgElem.classList.add('pokeball-img'); // Add the Pokéball styling class back
         }
-
+    
         // Clear HP bar
         const hpBar = document.getElementById(hpId);
         if (hpBar) {
-            hpBar.style.width = "0%";
-            hpBar.textContent = "HP";
-            hpBar.style.backgroundColor = "#ccc"; // Set back to default gray color
+            hpBar.style.width = "100%";
+            hpBar.textContent = "100% HP";
+            hpBar.style.backgroundColor = "#008000"; // Set back to default gray color
         }
     }
 
