@@ -181,13 +181,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (userCurrentPokemon && userCurrentPokemon.moves) {
             userCurrentPokemon.moves.forEach(move => {
                 const moveButton = document.createElement('button');
-                moveButton.textContent = move.name;
-                moveButton.classList.add('move-button');
+                moveButton.textContent = capitalizeFirstLetter(move.name); // Capitalize the first letter
+                moveButton.classList.add('move-button', 'animated'); // Add classes for styling and animation
                 moveButton.addEventListener('click', () => playerTurn(move));
                 userMovesContainer.appendChild(moveButton);
             });
         }
     }
+    
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+    
+    
 
     async function playerTurn(selectedMove) {
         if (battleOver) return; // Prevent any further action if the battle is over

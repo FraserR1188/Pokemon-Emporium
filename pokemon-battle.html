@@ -8,7 +8,11 @@
 </head>
 <body class="background-image">
   <h1 class="page-header">Pokémon Battle Simulator</h1>
-  <button class="main-button" onclick="window.location.href = 'index.html'">Main Menu</button>
+
+  <div class="button-nav">
+    <button class="main-button" onclick="window.location.href = 'pokemon-memory.html'">Pokemon Memory Card Game</button>
+    <button class="main-button" onclick="window.location.href = 'index.html'">Main Menu</button>
+  </div>
 
     <!-- User Pokémon Selection (3 Pokémon) -->
     <div class="selection">
@@ -63,7 +67,7 @@
       </div>
   </div>
   <!-- Reset Button -->
-  <button id="reset-battle-btn">Reset Battle</button>
+  <button class="main-button" id="reset-battle-btn">Reset Battle</button>
 
     <!-- Battle Logs -->
   <div id="battle-logs" class="logs"></div>

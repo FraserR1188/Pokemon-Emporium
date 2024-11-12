@@ -109,6 +109,13 @@ body {
     transform: translateY(4px);
 }
 
+.button-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 /***********************************header*/
 
 .page-header {
@@ -334,6 +341,7 @@ body {
     line-height: 20px;
     text-align: center;
     width: 100%;
+
 }
 
 .logs {
@@ -357,7 +365,50 @@ button#battle-btn {
     margin-top: 20px;
 }
 
+/* General Move Button Styles */
+.move-button {
+    background-color: #ffcc00; /* Pikachu yellow */
+    border: 2px solid #333;
+    border-radius: 5px;
+    color: #333;
+    font-size: 14px;
+    padding: 10px;
+    cursor: pointer;
+    margin: 5px;
+    transition: transform 0.2s, background-color 0.2s; /* Smooth transition for animation effects */
+    justify-content: center;
+}
 
+/* Move Button Hover Effects */
+.move-button:hover {
+    background-color: #ffaa00; /* Darker yellow on hover */
+    transform: scale(1.05); /* Slightly grow the button on hover */
+}
+
+/* Move Button Disabled State */
+.move-button:disabled {
+    background-color: #ddd;
+    border-color: #999;
+    color: #777;
+    cursor: not-allowed;
+}
+
+/* Animation for Move Button Appearance */
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Apply Animation to Buttons */
+.move-button.animated {
+    animation: slideIn 0.4s ease-in-out;
+}
 
 /*****************************Responsive adjustments */
 @media (max-width: 600px) {
