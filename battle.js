@@ -35,12 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 option1.value = pokemon.name;
                 option1.textContent = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
                 pokemonDropdown1.appendChild(option1);
-
-                const option2 = option1.cloneNode(true);
-                pokemonDropdown2.appendChild(option2);
             });
+
+            console.log("Dropdown populated successfully.");
         } catch (error) {
-            console.error("Error populating dropdowns:", error);
+            console.error("Error populating dropdown:", error);
             alert("Failed to load Pokémon list. Please try again later.");
         }
     }
@@ -108,18 +107,39 @@ document.addEventListener("DOMContentLoaded", () => {
     pokemonDropdown1.addEventListener('change', async () => {
         const selectedPokemon = pokemonDropdown1.value;
         if (selectedPokemon) {
+            // User selects Pokémon 1
             pokemon1Stats = await displaySelectedPokemon(selectedPokemon, 'pokemon1-name', 'pokemon1-img', 'pokemon1');
+
+            // Randomly select Pokémon 2
+            await randomizePokemon2();
             checkBothPokemonSelected();
         }
     });
 
-    pokemonDropdown2.addEventListener('change', async () => {
-        const selectedPokemon = pokemonDropdown2.value;
-        if (selectedPokemon) {
-            pokemon2Stats = await displaySelectedPokemon(selectedPokemon, 'pokemon2-name', 'pokemon2-img', 'pokemon2');
-            checkBothPokemonSelected();
+    async function randomizePokemon2() {
+        try {
+            const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=150');
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+            const data = await response.json();
+            const pokemonList = data.results;
+
+            // Pick a random Pokémon that is different from Pokémon 1
+            let randomPokemon;
+            do {
+                const randomIndex = Math.floor(Math.random() * pokemonList.length);
+                randomPokemon = pokemonList[randomIndex].name;
+            } while (randomPokemon === pokemonDropdown1.value.toLowerCase());
+
+            console.log(`Randomly selected Pokémon 2: ${randomPokemon}`);
+
+            // Display the randomly selected Pokémon 2
+            pokemon2Stats = await displaySelectedPokemon(randomPokemon, 'pokemon2-name', 'pokemon2-img', 'pokemon2');
+        } catch (error) {
+            console.error("Error selecting random Pokémon 2:", error);
+            alert("Failed to select a random Pokémon. Please try again.");
         }
-    });
+    }
 
     function checkBothPokemonSelected() {
         if (pokemon1Stats && pokemon2Stats) {
@@ -134,8 +154,10 @@ document.addEventListener("DOMContentLoaded", () => {
         isPokemon1Turn = true;
         battleLogs.innerHTML = '';
         battleBtn.disabled = false;
+
         pokemon1Stats.hp = pokemon1Stats.maxHp;
         pokemon2Stats.hp = pokemon2Stats.maxHp;
+
         updateHpBar('pokemon1', pokemon1Stats.hp, pokemon1Stats.maxHp);
         updateHpBar('pokemon2', pokemon2Stats.hp, pokemon2Stats.maxHp);
     }

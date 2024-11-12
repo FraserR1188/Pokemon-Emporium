@@ -28,18 +28,19 @@
 
         <!-- Pokémon 2 Box -->
         <div class="pokemon-box" id="pokemon2-box">
-            <label for="pokemon2">Choose Pokémon 2:</label>
-            <select id="pokemon2">
-                <option value="">Select a Pokémon</option>
-            </select>
-            <div class="pokemon-display" id="pokemon2-container">
-                <h2 id="pokemon2-name">Pokémon 2</h2>
-                <img id="pokemon2-img" src="" alt="Pokémon 2 Image">
-                <div class="hp-bar-container">
-                    <div id="pokemon2-hp" class="hp-bar">100% HP</div>
-                </div>
-            </div>
+          <label for="pokemon2">Pokémon 2 (Randomly Selected):</label>
+          <select id="pokemon2" disabled>
+              <option value="">Random Pokémon will be chosen</option>
+          </select>
+          <div class="pokemon-display" id="pokemon2-container">
+              <h2 id="pokemon2-name">Pokémon 2</h2>
+              <img id="pokemon2-img" src="" alt="Pokémon 2 Image">
+              <div class="hp-bar-container">
+                  <div id="pokemon2-hp" class="hp-bar">100% HP</div>
+              </div>
+          </div>
         </div>
+
     </div>
 
     <!-- Battle Controls -->
@@ -47,6 +48,8 @@
 
     <!-- Battle Logs -->
     <div id="battle-logs" class="logs"></div>
+
+    
     <footer id="footer">
         <div id="footer-container">
           <!-- Company Info -->
@@ -54,13 +57,11 @@
             <h3>Fraser's Games</h3>
             <p>Fraser's Games brings you the Pokemon Emporium.</p>
           </div>
-      
           <!-- Contact Info -->
           <div class="footer-box">
             <h4>Contact Us</h4>
             <p>Email</p>
           </div>
-      
           <!-- Social Media Links -->
           <div class="footer-box">
             <h4>Follow Us</h4>
