@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const pokemonDropdown1 = document.getElementById('pokemon1');
-    const pokemonDropdown2 = document.getElementById('pokemon2');
+    const pokemonDropdowns = [document.getElementById('pokemon1'), document.getElementById('pokemon2'), document.getElementById('pokemon3')];
     const battleLogs = document.getElementById('battle-logs');
-    const movesContainer1 = document.getElementById('pokemon1-moves');
-    let pokemon1Stats, pokemon2Stats;
-    let isPokemon1Turn = true;
+    const userMovesContainer = document.getElementById('user-moves');
+    let userPokemonQueue = [];
+    let opponentPokemonQueue = [];
+    let userCurrentPokemon, opponentCurrentPokemon;
+    let isUserTurn = true;
 
     async function fetchPokemon(pokemonName) {
         try {
@@ -31,16 +32,61 @@ document.addEventListener("DOMContentLoaded", () => {
             const pokemonList = data.results;
 
             pokemonList.forEach(pokemon => {
-                const option1 = document.createElement('option');
-                option1.value = pokemon.name;
-                option1.textContent = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
-                pokemonDropdown1.appendChild(option1);
+                pokemonDropdowns.forEach(dropdown => {
+                    const option = document.createElement('option');
+                    option.value = pokemon.name;
+                    option.textContent = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+                    dropdown.appendChild(option);
+                });
             });
 
             console.log("Dropdown populated successfully.");
         } catch (error) {
             console.error("Error populating dropdown:", error);
             alert("Failed to load Pokémon list. Please try again later.");
+        }
+    }
+
+    async function handleUserSelection() {
+        userPokemonQueue = [];
+        for (let dropdown of pokemonDropdowns) {
+            const selectedPokemon = dropdown.value;
+            if (selectedPokemon) {
+                const pokemonData = await fetchPokemon(selectedPokemon);
+                if (pokemonData) {
+                    userPokemonQueue.push(extractBattleStats(pokemonData));
+                }
+            }
+        }
+
+        if (userPokemonQueue.length === 3) {
+            await randomizeOpponentPokemon();
+            startBattle();
+        }
+    }
+
+    async function randomizeOpponentPokemon() {
+        try {
+            const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=150');
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+            const data = await response.json();
+            const pokemonList = data.results;
+
+            opponentPokemonQueue = [];
+            while (opponentPokemonQueue.length < 3) {
+                const randomIndex = Math.floor(Math.random() * pokemonList.length);
+                const randomPokemonName = pokemonList[randomIndex].name;
+                const pokemonData = await fetchPokemon(randomPokemonName);
+                if (pokemonData) {
+                    opponentPokemonQueue.push(extractBattleStats(pokemonData));
+                }
+            }
+
+            console.log("Randomized opponent Pokémon:", opponentPokemonQueue);
+        } catch (error) {
+            console.error("Error selecting random Pokémon:", error);
+            alert("Failed to select random Pokémon. Please try again.");
         }
     }
 
@@ -60,27 +106,26 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    async function displaySelectedPokemon(pokemonName, containerId, imgId, hpBarId) {
-        const pokemonData = await fetchPokemon(pokemonName);
-        if (pokemonData) {
-            const stats = extractBattleStats(pokemonData);
+    function startBattle() {
+        userCurrentPokemon = userPokemonQueue.shift();
+        opponentCurrentPokemon = opponentPokemonQueue.shift();
+        updatePokemonDisplay(userCurrentPokemon, 'user-pokemon-name', 'user-pokemon-img', 'user-pokemon-hp');
+        updatePokemonDisplay(opponentCurrentPokemon, 'opponent-pokemon-name', 'opponent-pokemon-img', 'opponent-pokemon-hp');
+        displayUserMoves();
+    }
 
-            const nameElem = document.getElementById(containerId);
-            const imgElem = document.getElementById(imgId);
-
-            if (nameElem) nameElem.textContent = stats.name;
-            if (imgElem) imgElem.src = stats.sprite;
-
-            updateHpBar(hpBarId, stats.hp, stats.maxHp);
-            return stats;
-        }
-        return null;
+    function updatePokemonDisplay(pokemon, nameId, imgId, hpId) {
+        const nameElem = document.getElementById(nameId);
+        const imgElem = document.getElementById(imgId);
+        if (nameElem) nameElem.textContent = pokemon.name;
+        if (imgElem) imgElem.src = pokemon.sprite;
+        updateHpBar(hpId, pokemon.hp, pokemon.maxHp);
     }
 
     function updateHpBar(pokemonId, currentHp, maxHp) {
-        const hpBar = document.getElementById(`${pokemonId}-hp`);
+        const hpBar = document.getElementById(pokemonId);
         if (!hpBar) {
-            console.warn(`HP bar element for ${pokemonId}-hp not found.`);
+            console.warn(`HP bar element for ${pokemonId} not found.`);
             return;
         }
 
@@ -97,74 +142,66 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function logBattleEvent(event) {
-        const logEntry = document.createElement('p');
-        logEntry.textContent = event;
-        battleLogs.appendChild(logEntry);
-        battleLogs.scrollTop = battleLogs.scrollHeight;
-    }
-
-    pokemonDropdown1.addEventListener('change', async () => {
-        const selectedPokemon = pokemonDropdown1.value;
-        if (selectedPokemon) {
-            pokemon1Stats = await displaySelectedPokemon(selectedPokemon, 'pokemon1-name', 'pokemon1-img', 'pokemon1');
-            await randomizePokemon2();
-            displayPokemon1Moves();
-            checkBothPokemonSelected();
-        }
-    });
-
-    async function randomizePokemon2() {
-        try {
-            const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=150');
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-
-            const data = await response.json();
-            const pokemonList = data.results;
-
-            let randomPokemon;
-            do {
-                const randomIndex = Math.floor(Math.random() * pokemonList.length);
-                randomPokemon = pokemonList[randomIndex].name;
-            } while (randomPokemon === pokemonDropdown1.value.toLowerCase());
-
-            console.log(`Randomly selected Pokémon 2: ${randomPokemon}`);
-
-            pokemon2Stats = await displaySelectedPokemon(randomPokemon, 'pokemon2-name', 'pokemon2-img', 'pokemon2');
-        } catch (error) {
-            console.error("Error selecting random Pokémon 2:", error);
-            alert("Failed to select a random Pokémon. Please try again.");
-        }
-    }
-
-    function displayPokemon1Moves() {
-        movesContainer1.innerHTML = ""; // Clear previous moves
-        if (pokemon1Stats && pokemon1Stats.moves) {
-            pokemon1Stats.moves.forEach(move => {
+    function displayUserMoves() {
+        userMovesContainer.innerHTML = ""; // Clear previous moves
+        if (userCurrentPokemon && userCurrentPokemon.moves) {
+            userCurrentPokemon.moves.forEach(move => {
                 const moveButton = document.createElement('button');
                 moveButton.textContent = move.name;
                 moveButton.classList.add('move-button');
                 moveButton.addEventListener('click', () => playerTurn(move));
-                movesContainer1.appendChild(moveButton);
+                userMovesContainer.appendChild(moveButton);
             });
         }
     }
 
-    function checkBothPokemonSelected() {
-        if (pokemon1Stats && pokemon2Stats) {
-            resetBattle();
+    async function playerTurn(selectedMove) {
+        const attacker = userCurrentPokemon;
+        const defender = opponentCurrentPokemon;
+
+        const movePower = await fetchMovePower(selectedMove.url);
+        const damage = calculateDamage(attacker, defender, movePower);
+        defender.hp -= damage;
+
+        logBattleEvent(`${attacker.name} uses ${selectedMove.name} on ${defender.name}, dealing ${damage} damage!`);
+        updateHpBar('opponent-pokemon-hp', defender.hp, defender.maxHp);
+
+        if (defender.hp <= 0) {
+            logBattleEvent(`${defender.name} has fainted!`);
+            if (opponentPokemonQueue.length > 0) {
+                opponentCurrentPokemon = opponentPokemonQueue.shift();
+                updatePokemonDisplay(opponentCurrentPokemon, 'opponent-pokemon-name', 'opponent-pokemon-img', 'opponent-pokemon-hp');
+            } else {
+                logBattleEvent("Congratulations! You have defeated all opponent Pokémon!");
+                return;
+            }
         }
+
+        await opponentTurn();
     }
 
-    function resetBattle() {
-        isPokemon1Turn = true;
-        battleLogs.innerHTML = '';
+    async function opponentTurn() {
+        const attacker = opponentCurrentPokemon;
+        const defender = userCurrentPokemon;
 
-        pokemon1Stats.hp = pokemon1Stats.maxHp;
-        pokemon2Stats.hp = pokemon2Stats.maxHp;
+        const randomMove = attacker.moves[Math.floor(Math.random() * attacker.moves.length)];
+        const movePower = await fetchMovePower(randomMove.url);
+        const damage = calculateDamage(attacker, defender, movePower);
+        defender.hp -= damage;
 
-        updateHpBar('pokemon1', pokemon1Stats.hp, pokemon1Stats.maxHp);
-        updateHpBar('pokemon2', pokemon2Stats.hp, pokemon2Stats.maxHp);
+        logBattleEvent(`${attacker.name} uses ${randomMove.name} on ${defender.name}, dealing ${damage} damage!`);
+        updateHpBar('user-pokemon-hp', defender.hp, defender.maxHp);
+
+        if (defender.hp <= 0) {
+            logBattleEvent(`${defender.name} has fainted!`);
+            if (userPokemonQueue.length > 0) {
+                userCurrentPokemon = userPokemonQueue.shift();
+                updatePokemonDisplay(userCurrentPokemon, 'user-pokemon-name', 'user-pokemon-img', 'user-pokemon-hp');
+                displayUserMoves();
+            } else {
+                logBattleEvent("All your Pokémon have fainted! You lose!");
+            }
+        }
     }
 
     async function fetchMovePower(moveUrl) {
@@ -184,51 +221,14 @@ document.addEventListener("DOMContentLoaded", () => {
         return Math.max(1, Math.floor(baseDamage * randomFactor));
     }
 
-    async function playerTurn(selectedMove) {
-        if (!pokemon1Stats || !pokemon2Stats) {
-            alert("Please select two Pokémon to battle!");
-            return;
-        }
-
-        // User's Pokémon attacks first
-        const attacker = pokemon1Stats;
-        const defender = pokemon2Stats;
-
-        const movePower = await fetchMovePower(selectedMove.url);
-
-        const damage = calculateDamage(attacker, defender, movePower);
-        defender.hp -= damage;
-
-        logBattleEvent(`${attacker.name} uses ${selectedMove.name} on ${defender.name}, dealing ${damage} damage!`);
-        updateHpBar('pokemon2', defender.hp, defender.maxHp);
-
-        if (defender.hp <= 0) {
-            logBattleEvent(`${defender.name} has fainted! ${attacker.name} wins!`);
-            return;
-        }
-
-        // Pokémon 2 attacks after Pokémon 1
-        await pokemon2Turn();
+    function logBattleEvent(event) {
+        const logEntry = document.createElement('p');
+        logEntry.textContent = event;
+        battleLogs.appendChild(logEntry);
+        battleLogs.scrollTop = battleLogs.scrollHeight;
     }
 
-    async function pokemon2Turn() {
-        const attacker = pokemon2Stats;
-        const defender = pokemon1Stats;
-
-        const randomMove = attacker.moves[Math.floor(Math.random() * attacker.moves.length)];
-        const movePower = await fetchMovePower(randomMove.url);
-
-        const damage = calculateDamage(attacker, defender, movePower);
-        defender.hp -= damage;
-
-        logBattleEvent(`${attacker.name} uses ${randomMove.name} on ${defender.name}, dealing ${damage} damage!`);
-        updateHpBar('pokemon1', defender.hp, defender.maxHp);
-
-        if (defender.hp <= 0) {
-            logBattleEvent(`${defender.name} has fainted! ${attacker.name} wins!`);
-        }
-    }
-
+    pokemonDropdowns.forEach(dropdown => dropdown.addEventListener('change', handleUserSelection));
     populateDropdowns();
 });
 

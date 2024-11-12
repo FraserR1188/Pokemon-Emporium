@@ -260,6 +260,8 @@ body {
     justify-content: center;
     gap: 20px;
     margin-bottom: 20px;
+    background-color: #555;
+    padding: 20px;
 }
 
 .pokemon-box {
@@ -313,7 +315,8 @@ body {
     overflow-y: auto;
     padding: 20px;
     margin-bottom: 20px;
-    margin-top: 20px
+    margin-top: 20px;
+    background-color: #555;
 }
 
 button#battle-btn {
