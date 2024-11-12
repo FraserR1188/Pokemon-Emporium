@@ -43,11 +43,11 @@
 
   <!-- Battle Arena -->
   <div class="battle-arena">
-      <!-- Pokémon 1 Box -->
+      <!-- User Pokémon Box -->
       <div class="pokemon-box" id="user-box">
           <div class="pokemon-display" id="user-pokemon-container">
               <h2 id="user-pokemon-name">User Pokémon</h2>
-              <img id="user-pokemon-img" src="" alt="User Pokémon Image">
+              <img id="user-pokemon-img" src="./assets/images/pokeball.png" alt="User Pokémon Image" class="pokeball-img">
               <div class="hp-bar-container">
                   <div id="user-pokemon-hp" class="hp-bar">100% HP</div>
               </div>
@@ -55,22 +55,26 @@
           <div id="user-moves" class="moves-container"></div>
       </div>
 
-      <!-- Pokémon 2 Box -->
+      <!-- Opponent Pokémon Box -->
       <div class="pokemon-box" id="opponent-box">
           <div class="pokemon-display" id="opponent-pokemon-container">
               <h2 id="opponent-pokemon-name">Opponent Pokémon</h2>
-              <img id="opponent-pokemon-img" src="" alt="Opponent Pokémon Image">
+              <img id="opponent-pokemon-img" src="./assets/images/pokeball.png" alt="Opponent Pokémon Image" class="pokeball-img">
               <div class="hp-bar-container">
                   <div id="opponent-pokemon-hp" class="hp-bar">100% HP</div>
               </div>
           </div>
       </div>
   </div>
+
   <!-- Reset Button -->
   <button class="main-button" id="reset-battle-btn">Reset Battle</button>
 
-    <!-- Battle Logs -->
+  <!-- Battle Logs -->
   <div id="battle-logs" class="logs"></div>
+
+  <!-- JavaScript -->
+  <script src="battle.js"></script>
 
     
     <footer id="footer">

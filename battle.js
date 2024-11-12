@@ -152,7 +152,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const nameElem = document.getElementById(nameId);
         const imgElem = document.getElementById(imgId);
         if (nameElem) nameElem.textContent = pokemon.name;
-        if (imgElem) imgElem.src = pokemon.sprite;
+        if (imgElem) {
+            imgElem.src = pokemon.sprite; // Set the Pokémon sprite to replace the Pokéball
+            imgElem.classList.remove('pokeball-img'); // Remove the Pokéball styling class once Pokémon is chosen
+        }
         updateHpBar(hpId, pokemon.hp, pokemon.maxHp);
     }
 
@@ -188,12 +191,10 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     }
-    
+
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
-    
-    
 
     async function playerTurn(selectedMove) {
         if (battleOver) return; // Prevent any further action if the battle is over
@@ -320,9 +321,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const nameElem = document.getElementById(nameId);
         if (nameElem) nameElem.textContent = "Pokémon";
 
-        // Clear image
+        // Set image back to Pokéball
         const imgElem = document.getElementById(imgId);
-        if (imgElem) imgElem.src = "";
+        if (imgElem) {
+            imgElem.src = "./assets/images/pokeball.png"; // Set back to Pokéball placeholder
+            imgElem.classList.add('pokeball-img'); // Add the Pokéball styling class back
+        }
 
         // Clear HP bar
         const hpBar = document.getElementById(hpId);
