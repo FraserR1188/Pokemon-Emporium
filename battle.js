@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const pokemonDropdown1 = document.getElementById('pokemon1');
     const pokemonDropdown2 = document.getElementById('pokemon2');
     const battleLogs = document.getElementById('battle-logs');
-    const battleBtn = document.getElementById('battle-btn');
+    const movesContainer1 = document.getElementById('pokemon1-moves');
     let pokemon1Stats, pokemon2Stats;
     let isPokemon1Turn = true;
 
@@ -107,11 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
     pokemonDropdown1.addEventListener('change', async () => {
         const selectedPokemon = pokemonDropdown1.value;
         if (selectedPokemon) {
-            // User selects Pokémon 1
             pokemon1Stats = await displaySelectedPokemon(selectedPokemon, 'pokemon1-name', 'pokemon1-img', 'pokemon1');
-
-            // Randomly select Pokémon 2
             await randomizePokemon2();
+            displayPokemon1Moves();
             checkBothPokemonSelected();
         }
     });
@@ -124,7 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await response.json();
             const pokemonList = data.results;
 
-            // Pick a random Pokémon that is different from Pokémon 1
             let randomPokemon;
             do {
                 const randomIndex = Math.floor(Math.random() * pokemonList.length);
@@ -133,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             console.log(`Randomly selected Pokémon 2: ${randomPokemon}`);
 
-            // Display the randomly selected Pokémon 2
             pokemon2Stats = await displaySelectedPokemon(randomPokemon, 'pokemon2-name', 'pokemon2-img', 'pokemon2');
         } catch (error) {
             console.error("Error selecting random Pokémon 2:", error);
@@ -141,19 +137,28 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function displayPokemon1Moves() {
+        movesContainer1.innerHTML = ""; // Clear previous moves
+        if (pokemon1Stats && pokemon1Stats.moves) {
+            pokemon1Stats.moves.forEach(move => {
+                const moveButton = document.createElement('button');
+                moveButton.textContent = move.name;
+                moveButton.classList.add('move-button');
+                moveButton.addEventListener('click', () => playerTurn(move));
+                movesContainer1.appendChild(moveButton);
+            });
+        }
+    }
+
     function checkBothPokemonSelected() {
         if (pokemon1Stats && pokemon2Stats) {
-            battleBtn.disabled = false;
             resetBattle();
-        } else {
-            battleBtn.disabled = true;
         }
     }
 
     function resetBattle() {
         isPokemon1Turn = true;
         battleLogs.innerHTML = '';
-        battleBtn.disabled = false;
 
         pokemon1Stats.hp = pokemon1Stats.maxHp;
         pokemon2Stats.hp = pokemon2Stats.maxHp;
@@ -179,14 +184,36 @@ document.addEventListener("DOMContentLoaded", () => {
         return Math.max(1, Math.floor(baseDamage * randomFactor));
     }
 
-    async function playerTurn() {
+    async function playerTurn(selectedMove) {
         if (!pokemon1Stats || !pokemon2Stats) {
             alert("Please select two Pokémon to battle!");
             return;
         }
 
-        const attacker = isPokemon1Turn ? pokemon1Stats : pokemon2Stats;
-        const defender = isPokemon1Turn ? pokemon2Stats : pokemon1Stats;
+        // User's Pokémon attacks first
+        const attacker = pokemon1Stats;
+        const defender = pokemon2Stats;
+
+        const movePower = await fetchMovePower(selectedMove.url);
+
+        const damage = calculateDamage(attacker, defender, movePower);
+        defender.hp -= damage;
+
+        logBattleEvent(`${attacker.name} uses ${selectedMove.name} on ${defender.name}, dealing ${damage} damage!`);
+        updateHpBar('pokemon2', defender.hp, defender.maxHp);
+
+        if (defender.hp <= 0) {
+            logBattleEvent(`${defender.name} has fainted! ${attacker.name} wins!`);
+            return;
+        }
+
+        // Pokémon 2 attacks after Pokémon 1
+        await pokemon2Turn();
+    }
+
+    async function pokemon2Turn() {
+        const attacker = pokemon2Stats;
+        const defender = pokemon1Stats;
 
         const randomMove = attacker.moves[Math.floor(Math.random() * attacker.moves.length)];
         const movePower = await fetchMovePower(randomMove.url);
@@ -195,23 +222,12 @@ document.addEventListener("DOMContentLoaded", () => {
         defender.hp -= damage;
 
         logBattleEvent(`${attacker.name} uses ${randomMove.name} on ${defender.name}, dealing ${damage} damage!`);
-
-        if (isPokemon1Turn) {
-            updateHpBar('pokemon2', defender.hp, defender.maxHp);
-        } else {
-            updateHpBar('pokemon1', defender.hp, defender.maxHp);
-        }
+        updateHpBar('pokemon1', defender.hp, defender.maxHp);
 
         if (defender.hp <= 0) {
             logBattleEvent(`${defender.name} has fainted! ${attacker.name} wins!`);
-            battleBtn.disabled = true;
-            return;
         }
-
-        isPokemon1Turn = !isPokemon1Turn;
     }
-
-    battleBtn.addEventListener('click', playerTurn);
 
     populateDropdowns();
 });

@@ -7,47 +7,45 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <h1>Pokémon Battle Simulator</h1>
-    <button class="main-button" onclick="window.location.href = 'index.html'">Main Menu</button>
+  <h1>Pokémon Battle Simulator</h1>
+  <button class="main-button" onclick="window.location.href = 'index.html'">Main Menu</button>
     <!-- Battle Arena -->
-    <div class="battle-arena">
-        <!-- Pokémon 1 Box -->
-        <div class="pokemon-box" id="pokemon1-box">
-            <label for="pokemon1">Choose Pokémon 1:</label>
-            <select id="pokemon1">
-                <option value="">Select a Pokémon</option>
-            </select>
-            <div class="pokemon-display" id="pokemon1-container">
-                <h2 id="pokemon1-name">Pokémon 1</h2>
-                <img id="pokemon1-img" src="" alt="Pokémon 1 Image">
-                <div class="hp-bar-container">
-                    <div id="pokemon1-hp" class="hp-bar">100% HP</div>
-                </div>
+  <!-- Battle Arena -->
+  <div class="battle-arena">
+    <!-- Pokémon 1 Box -->
+    <div class="pokemon-box" id="pokemon1-box">
+        <label for="pokemon1">Choose Pokémon 1:</label>
+        <select id="pokemon1">
+            <option value="">Select a Pokémon</option>
+        </select>
+        <div class="pokemon-display" id="pokemon1-container">
+            <h2 id="pokemon1-name">Pokémon 1</h2>
+            <img id="pokemon1-img" src="" alt="Pokémon 1 Image">
+            <div class="hp-bar-container">
+                <div id="pokemon1-hp" class="hp-bar">100% HP</div>
             </div>
         </div>
-
-        <!-- Pokémon 2 Box -->
-        <div class="pokemon-box" id="pokemon2-box">
-          <label for="pokemon2">Pokémon 2 (Randomly Selected):</label>
-          <select id="pokemon2" disabled>
-              <option value="">Random Pokémon will be chosen</option>
-          </select>
-          <div class="pokemon-display" id="pokemon2-container">
-              <h2 id="pokemon2-name">Pokémon 2</h2>
-              <img id="pokemon2-img" src="" alt="Pokémon 2 Image">
-              <div class="hp-bar-container">
-                  <div id="pokemon2-hp" class="hp-bar">100% HP</div>
-              </div>
-          </div>
-        </div>
-
+        <div id="pokemon1-moves" class="moves-container"></div>
     </div>
 
-    <!-- Battle Controls -->
-    <button id="battle-btn" disabled>Battle!</button>
+    <!-- Pokémon 2 Box -->
+    <div class="pokemon-box" id="pokemon2-box">
+        <label for="pokemon2">Pokémon 2 (Randomly Selected):</label>
+        <select id="pokemon2" disabled>
+            <option value="">Random Pokémon will be chosen</option>
+        </select>
+        <div class="pokemon-display" id="pokemon2-container">
+            <h2 id="pokemon2-name">Pokémon 2</h2>
+            <img id="pokemon2-img" src="" alt="Pokémon 2 Image">
+            <div class="hp-bar-container">
+                <div id="pokemon2-hp" class="hp-bar">100% HP</div>
+            </div>
+        </div>
+    </div>
+  </div>
 
     <!-- Battle Logs -->
-    <div id="battle-logs" class="logs"></div>
+  <div id="battle-logs" class="logs"></div>
 
     
     <footer id="footer">
