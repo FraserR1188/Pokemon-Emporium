@@ -1,131 +1,154 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Pokemon Emporium
 
-Welcome Robbie Fraser,
+## Milestone Project 2 - Interactive Front-End Site
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+(This is spacing for the main image once project is complete)
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+- The Pokemon Emporium is aimed at children from ages 5 onwards as well as anyone who has a keen interest in Pokemon. It features a memory card game which will contain authentic cards, which will allow the user to gain a score. It will also feature a Pokedex allowing the user to access Pokemon details.
+- This is my Milestone Project 2 submission for Code Institutes Diploma in Web Application Development Course. My website features 3 webpages and is built using HTML, CSS and JavaScript.
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Project Link
 
-`python3 -m http.server`
+(Link to the project)
 
-A blue button should appear to click: _Make Public_,
+## Repository
 
-Another blue button should appear to click: _Open Browser_.
+(Link to repo)
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+# Table of Contents
 
-A blue button should appear to click: _Make Public_,
+## Contents
 
-Another blue button should appear to click: _Open Browser_.
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+1. [User Stories] (#user-stories)
+		*[]
+		* [Game Users] (#game-users)
+		* [Parents] (#parents)
+		* [Pokemon Fanatics] (#pokemon-fanatics)
+		* [Business Owner] (#business-owner)
 
-To log into the Heroku toolbelt CLI:
+3. [Design] (#design)
+	* [Typography] (#typograhy)
+	* [Images] (#images)
+	* [Colour Scheme] (#color-scheme)
+	* [Wireframes] (#wireframes)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+4.  [Features] (#features)
+	* [Existing features] (#exisiting-features)
+	* [Features left to implement] (#features-left-to-implement)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+5. [Technologies used] (#technologies-used)
 
-### Connecting your Mongo database
+6. [Testing]
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+7. [Deployment] (#deployment)
+	* How to run this project locally
 
-------
+8. [Credits] (#credits)
+	* [Content]
+	* [Media]
+	* [Code]
+	* [Acknowledgements]
 
-## Release History
+## Project Goals
+This website is dedicated to the love of Pokemon and targets to main fanbases, Pokemon Cards and also the game itself with the Pokedex aspect. The memory card is light hearted with a timer and a time to beat rather than a countdown timer to make less stressful and more fun to play and also to play again. The Pokedex section of the website...
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+## User Stories
+#### Game Users:
 
-**June 18, 2024,** Add Mongo back into template
+These are users to like to spending time playing causal games whether they like Pokemon or not.
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+- As a game user, I would like have a timer counter.
+- As a game user, I would like to have smooth transitions when selecting the cards.
+- As a game user, I would to have an eye-catching website to draw me in more and make me want to play more than one game.
+- As a game user, I would to play on any device.
+- As a game user, I would to have the option on how to play the game if I get stuck.
+- As a game user, I would like some sort of competition between the computer and myself to keep me enticed.
 
-**May 28 2024:** Fix Mongo and Links installs
+#### Parents:
 
-**April 26 2024:** Update node version to 16
+These are the parents of younger children who may be concerned of their child playing games online.
 
-**September 20 2023:** Update Python version to 3.9.17.
+- As a parent, I would like if the website was children friendly.
+- As a parent, I would like to be able to contact the business owners of the website in case I have any queries or problems.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+#### Pokemon Fanatics
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+These are users who are avid Pokemon hobbyists and have a keen interest in all things Pokemon.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+- As a Pokemon fanatic, I would like to see a variation of Pokemon cards which I can play with.
+- As a Pokemon fanatic, I would like to see a Pokedex which looks how it should and what information I receive from it.
+- As a Pokemon fanatic, I would like to see that genuine Pokemon cards are used in the memory card game.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+#### Business Owners
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+These are the owners of the website
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+- As a business owner, I want my website to accessible and user friendly on any device.
+- As a business owner, I want my website to have links to social media outlets.
+- As a business owner, I want people to learn more about Pokemon in a fun way.
+ 
+## Design
+### Typography
+- The main font which I'll use throughout the website is Sixtyfour Convergence which is obtained from Google Fonts. This type of font has a retro-gaming vibe which I feel would go well with the gaming style of website. I will use Sans Serif as a fall back font.
+- There won't be much text on the website but if I feel that the main font doesn't read well (potentially on the Pokedex where font will be smaller) I use Roboto Mono as this still has a retro vibe but is more readable.
+### Images
+- Images are a main criteria throughout the website. The main memory card game will comprise of 24 cards (12 pairs) which I will obtain from the official TCG website. https://www.pokemon.com/us/pokemon-tcg/pokemon-cards
+- There will be a different main image on each page which will be taken from the original games on the GameBoy.
+- Images for the Pokedex will come from Pokemon API which will be shown inside the Pokedex container.
+### Colour Scheme
+The colours which are present throughout are as follows:
+https://www.schemecolor.com/pokemon-colors.php
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## Features
+### Existing Features
+#### Pokemon Memory Card Game:
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+ - The game features 10 different cards (within the JavaScript this is x2 so there are 10 pairs) which are facing back to the user. When clicked on the card flips through a smooth transition.
+ - Once the first card is flipped the timer starts and once the last pair have matched the timer stops and logs the time for the player to try and beat.
+ - There is also a reset button in case the player wants to start again any time throughout playing.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Future Features
+#### Pokemon Memory Card Game
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+- A future feature could be that an API could hold a lot of players times and have a leaderboard.
+- Have difficulty settings with more cards, medium with 15 cards and hard with 20 cards etc...
+- 
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## Technologies Use
+### Languages Used
+- HTML5
+- CSS3
+- JavaScript
+### Frameworks Libraries and Programs
+- Google Fonts
+	- I used the Sixtyfour Convergence.
+- CloudConvert
+	- I used this online image converter to change my images from PNG to AVIF.
+	- 
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### Application Programming Interface (API's)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## Testing 
+(This will have it's own separate section on the game file.)
 
-------
+## Deployment
 
-## FAQ about the uptime script
 
-**Why have you added this script?**
+## Credits
+- W3Schools for coding advice.
+- https://alphacoders.com/pokemon-4k-wallpapers
+- https://icons8.com/icon/set/social-media/isometric
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+Problems with the memory card game:
 
-**How will this affect me?**
+In the memory card game I've had trouble accessing the location of the card sourcing.
+I originally thought this problem was focused in the startGame function but it was actually in the selectCard function and the card1Selected.src file path was board[r][c] but it should of been what it was right now.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+Once i thought the game was finished. After selecting the second card the game would stop. This was due to mentioned card1Selected twice in the selectCard function.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+issues with the index.html. Created a hidden-div to stop the footer overlapping the buttons on a mobile view.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+> Written with [StackEdit](https://stackedit.io/).

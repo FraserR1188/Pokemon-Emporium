@@ -302,6 +302,8 @@ body {
     margin-bottom: 20px;
     background-color: hsl(0, 0%, 33%);
     padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }
 
 .pokemon-box {
@@ -358,6 +360,7 @@ body {
     margin-bottom: 20px;
     margin-top: 20px;
     background-color: #555;
+    border-radius: 10px;
 }
 
 button#battle-btn {
