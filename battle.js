@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const pokemonDropdowns = [document.getElementById('pokemon1'), document.getElementById('pokemon2'), document.getElementById('pokemon3')];
     const battleLogs = document.getElementById('battle-logs');
     const userMovesContainer = document.getElementById('user-moves');
+    const resetButton = document.getElementById('reset-battle-btn');
     let userPokemonQueue = [];
     let opponentPokemonQueue = [];
     let userCurrentPokemon, opponentCurrentPokemon;
-    let isUserTurn = true;
 
     async function fetchPokemon(pokemonName) {
         try {
@@ -228,7 +228,49 @@ document.addEventListener("DOMContentLoaded", () => {
         battleLogs.scrollTop = battleLogs.scrollHeight;
     }
 
+    function resetBattle() {
+        // Reset dropdowns
+        pokemonDropdowns.forEach(dropdown => {
+            dropdown.value = "";
+        });
+    
+        // Clear Pokémon queues
+        userPokemonQueue = [];
+        opponentPokemonQueue = [];
+    
+        // Clear Pokémon displays
+        clearPokemonDisplay('user-pokemon-name', 'user-pokemon-img', 'user-pokemon-hp');
+        clearPokemonDisplay('opponent-pokemon-name', 'opponent-pokemon-img', 'opponent-pokemon-hp');
+    
+        // Clear moves
+        userMovesContainer.innerHTML = "";
+    
+        // Clear battle logs
+        battleLogs.innerHTML = "";
+    }
+    
+    function clearPokemonDisplay(nameId, imgId, hpId) {
+        // Set default text for name
+        const nameElem = document.getElementById(nameId);
+        if (nameElem) nameElem.textContent = "Pokémon";
+    
+        // Clear image
+        const imgElem = document.getElementById(imgId);
+        if (imgElem) imgElem.src = "";
+    
+        // Clear HP bar
+        const hpBar = document.getElementById(hpId);
+        if (hpBar) {
+            hpBar.style.width = "0%";
+            hpBar.textContent = "HP";
+            hpBar.style.backgroundColor = "#ccc"; // Set back to default gray color
+        }
+    }
+    
+
+    resetButton.addEventListener('click', resetBattle);
     pokemonDropdowns.forEach(dropdown => dropdown.addEventListener('change', handleUserSelection));
     populateDropdowns();
 });
+
 
