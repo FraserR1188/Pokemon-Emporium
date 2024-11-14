@@ -1,3 +1,22 @@
+//Code for help modal
+var modal = document.getElementById("help-modal");
+var btn = document.getElementById("help-button");
+var span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const pokemonDropdowns = [document.getElementById('pokemon1'), document.getElementById('pokemon2'), document.getElementById('pokemon3')];
     const pokemonPreviews = [document.getElementById('pokemon1-preview'), document.getElementById('pokemon2-preview'), document.getElementById('pokemon3-preview')];

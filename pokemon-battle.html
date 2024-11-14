@@ -9,10 +9,20 @@
 <body class="background-image">
   <h1 class="page-header">Pokémon Battle Simulator</h1>
 
+  <!--Buttons For Navigation-->
   <div class="button-nav">
     <button class="main-button" onclick="window.location.href = 'pokemon-memory.html'">Pokemon Memory Card Game</button>
     <button class="main-button" onclick="window.location.href = 'index.html'">Main Menu</button>
   </div>
+
+      <!--Modal Help Content-->
+      <button id="help-button" class="main-button">How to play</button>
+      <div id="help-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Pick your team of 3 Pokemon and when you pick your 3rd Pokemon your opponent will then pick their team. Keep battling until the winner prevails! Use the Reset Battle button to have another go!</p>
+        </div>
+      </div>
 
     <!-- User Pokémon Selection (3 Pokémon) -->
     <div class="selection">
@@ -73,10 +83,6 @@
   <!-- Battle Logs -->
   <div id="battle-logs" class="logs"></div>
 
-  <!-- JavaScript -->
-  <script src="battle.js"></script>
-
-    
     <footer id="footer">
         <div id="footer-container">
           <!-- Company Info -->
@@ -94,15 +100,15 @@
             <h4>Follow Us</h4>
             <div id="footer-links">
               <ul>
-                <li><a href="https://en-gb.facebook.com/"><img src="./assets/images/social-media-icons/facebook-icon.png"></a></li>
-                <li><a href="https://www.instagram.com/"><img src="./assets/images/social-media-icons/instagram-old-icon.png"></a></li>
-                <li><a href="https://www.youtube.com/"><img src="./assets/images/social-media-icons/youtube-icon.png"></a></li>
+                <li><a href="https://en-gb.facebook.com/" class="footer-icon"><img src="./assets/images/social-media-icons/facebook-icon.png"></a></li>
+                <li><a href="https://www.instagram.com/" class="footer-icon"><img src="./assets/images/social-media-icons/instagram-old-icon.png"></a></li>
+                <li><a href="https://www.youtube.com/" class="footer-icon"><img src="./assets/images/social-media-icons/youtube-icon.png"></a></li>
               </ul>
             </div>
           </div>
         </div>
       </footer>
-    <!-- JavaScript -->
+
     <script src="battle.js"></script>
 </body>
 </html>

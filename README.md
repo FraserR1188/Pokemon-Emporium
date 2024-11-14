@@ -42,10 +42,10 @@
 6. [Testing]
 
 7. [Deployment](#deployment)
-	* [Creating a Gitpod Workspace]
-	* [GitHub Pages]
-	* [Forking the GitHub Repository]
-	* [Making a Local Clone]
+	* [Creating a Gitpod Workspace](#creating-a-gitpod-workspace)
+	* [GitHub Pages](#github-pages)
+	* [Forking the GitHub Repository](#forking-the-github-repository)
+	* [Making a Local Clone](#making-a-local-clone)
 
 8. [Credits](#credits)
 	* [Content]
@@ -102,7 +102,8 @@ These are the owners of the website
 - There won't be much text on the website but if I feel that the main font doesn't read well. I use Roboto Mono as this still has a retro vibe but is more readable.
 
 ### Images
-- Images are a main criteria throughout the website. The main memory card game will comprise of 20 cards (10 pairs) which I will obtain from the official TCG website. https://www.pokemon.com/us/pokemon-tcg/pokemon-cards
+- Images are a main criteria throughout the website. The main memory card game will comprise of 20 cards (10 pairs) which I will obtain from the official TCG website.
+- [TCG Pokemon Card Website](https://www.pokemon.com/us/pokemon-tcg/pokemon-cards)
 - Images for the Pokedex will come from Pokemon API which will be shown inside the Pokemon Battlegrounds.
 
 ### Colour Scheme
