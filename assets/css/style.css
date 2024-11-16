@@ -1,12 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap');
 
-/*****************************index**/
+/********************************Index-Page************************/
 
 .background-image {
     background-image: url("../images/pokemon-bg-1.jpg");
     background-size: cover; 
     max-width: 100%;
-    height: 100%;
 }
 
 body {
@@ -15,10 +14,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 50px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+    margin: 0 auto;
+    height: 100%;
 }
 
 #index-pokemon-header {
@@ -31,6 +28,26 @@ body {
     border: 2px solid black;
     border-radius: 10px;
 }
+
+/********************************Social Media Icons************************/
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+
+  .footer-icon img:hover {
+    animation: bounce 0.6s ease;
+  }
+  
+/********************************Model-Box************************/
 
 .modal {
     display: none; 
@@ -45,31 +62,6 @@ body {
     background-color: rgba(0,0,0,0.4);
 }
 
-#hidden-div {
-    margin: 100px;
-    padding: 100px;
-}
-
-/*****************icons*/
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(-10px);
-    }
-    60% {
-      transform: translateY(-5px);
-    }
-  }
-  
-  /* CSS for the hover effect on the image */
-  .footer-icon img:hover {
-    animation: bounce 0.6s ease;
-  }
-  
-  /*********modal content box */
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -95,7 +87,7 @@ body {
     cursor: pointer;
 }
 
-/*****************button*/
+/********************************Buttons************************/
 
 .main-button a {
     text-decoration: none;
@@ -136,7 +128,7 @@ body {
     justify-content: center;
 }
 
-/***********************************header*/
+/********************************Page Header************************/
 
 .page-header {
     font-size: 2rem;
@@ -150,7 +142,7 @@ body {
     border-radius: 10px;
 }
 
-/**********************************footer*/
+/********************************Footer************************/
 
 #footer {
     background-color: #555; 
@@ -202,9 +194,9 @@ body {
     color: #fff; 
     margin-right: 10px;
 }
-/*****************memory card game styles*/
 
-/* Base Styles for Larger Screens */
+/********************************Memory Card Game************************/
+
 #game-board {
     height: auto;
     width: 90%;
@@ -268,10 +260,9 @@ body {
     border-radius: 10px;
 }
 
+/********************************Pokemon Battleground************************/
 
-
-/**************************pokemon-battle*/
-
+/********************************Battle Arena************************/
 .selection {
     display: flex;
     flex-direction: row;
@@ -380,14 +371,14 @@ button#battle-btn {
     margin-top: 20px;
 }
 
-/* General Move Button Styles */
+/********************************Battleground Moves************************/
 
 .moves-container {
     margin-top: 5px;
 }
 
 .move-button {
-    background-color: #ffcc00; /* Pikachu yellow */
+    background-color: #ffcc00;
     border: 2px solid #333;
     border-radius: 5px;
     color: #333;
@@ -395,17 +386,15 @@ button#battle-btn {
     padding: 10px;
     cursor: pointer;
     margin: 5px;
-    transition: transform 0.2s, background-color 0.2s; /* Smooth transition for animation effects */
+    transition: transform 0.2s, background-color 0.2s;
     justify-content: center;
 }
 
-/* Move Button Hover Effects */
 .move-button:hover {
-    background-color: #ffaa00; /* Darker yellow on hover */
-    transform: scale(1.05); /* Slightly grow the button on hover */
+    background-color: #ffaa00;
+    transform: scale(1.05);
 }
 
-/* Move Button Disabled State */
 .move-button:disabled {
     background-color: #ddd;
     border-color: #999;
@@ -413,7 +402,6 @@ button#battle-btn {
     cursor: not-allowed;
 }
 
-/* Animation for Move Button Appearance */
 @keyframes slideIn {
     from {
         transform: translateY(20px);
@@ -425,30 +413,33 @@ button#battle-btn {
     }
 }
 
-/* Apply Animation to Buttons */
 .move-button.animated {
     animation: slideIn 0.4s ease-in-out;
 }
 
-/* Styling for Pokéball placeholder images */
 .pokeball-img {
     width: 100px;
     height: 100px;
     object-fit: contain;
     margin-bottom: 10px;
-    opacity: 0.7; /* Make it slightly transparent */
+    opacity: 0.7;
 }
 
-/*****************************Responsive adjustments */
+/********************************Media Queries - Responsiveness************************/
+
 @media (max-width: 600px) {
+    /* Battle Arena */
     .battle-arena {
         flex-direction: column;
         align-items: center;
     }
-
     .pokemon-box {
         width: 100%;
         max-width: 300px;
+    }
+    /* Footer */
+    .margin-footer {
+        margin: 5px;
     }
     .footer-box p {
         font-size: 1em;
@@ -461,19 +452,6 @@ button#battle-btn {
     }
 }
 
-/* Responsive Styles for Smaller Screens */
-
-@media (max-width: 600px) {
-    .footer-box p {
-        font-size: 0.8em;
-    }
-    .footer-box h3 h4 {
-        font-size: 1em;
-    }
-    #footer p {
-        font-size: 0.8em;
-    }
-}
 
 @media (max-width: 400px) {
     #index-pokemon-header {
@@ -482,7 +460,6 @@ button#battle-btn {
     #game-board {
         gap: 3px; /* Reduce the gap between cards */
     }
-
     .card {
         height: 80px; /* Reduce card height */
         width: 55px; /* Reduce card width for smaller screens */
@@ -496,6 +473,7 @@ button#battle-btn {
     #best-time {
         font-size: 1em; /* Reduce the font size to better fit smaller screens */
     }
+    /* Footer */
     .footer-box p {
         font-size: 0.6em;
     }
@@ -505,25 +483,28 @@ button#battle-btn {
     #footer p {
         font-size: 0.6em;
     }
+    .margin-footer {
+        margin: 5px;
+    }
 }
 
 @media (max-width: 300px) {
     #game-board {
-        gap: 2px; /* Reduce gap even more for very small screens */
+        gap: 2px;
     }
 
     .card {
-        height: 60px; /* Further reduce card size */
-        width: 45px; /* Make the cards smaller for tiny screens */
+        height: 60px;
+        width: 45px;
     }
 
     .page-header {
-        font-size: 1.2em; /* Reduce header font size even further */
+        font-size: 1.2em; 
     }
 
     #timer,
     #best-time {
-        font-size: 0.9em; /* Make text smaller for very tiny devices */
+        font-size: 0.9em;
     }
 
     .footer-box p {
@@ -534,6 +515,9 @@ button#battle-btn {
     }
     #footer p {
         font-size: 0.5em;
+    }
+    .margin-footer {
+        margin: 5px;
     }
 
     /* Battle Arena */
@@ -555,4 +539,5 @@ button#battle-btn {
         margin: 2px;
         font-size: 12px;
     }
+
 }
