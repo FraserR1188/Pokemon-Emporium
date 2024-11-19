@@ -17,6 +17,7 @@ window.onclick = function(event) {
   }
 }
 
+//List of pokemon which will be connected to the cards in the game
 var cardList = [
     "bulbasaur",
     "charizard",
