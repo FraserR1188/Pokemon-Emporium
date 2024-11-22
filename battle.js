@@ -31,6 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const pokeballImagePath = "./assets/images/pokeball.png"; // Path to the Pokéball image
 
+    /**
+    * This function takes the name of a Pokemon as an argument, converts it to lowercase and makes an API call to get its
+    * data. If the response is successful, it returns the parsed JSON data. Otherwise , it returns null and logs an error.
+    */
     async function fetchPokemon(pokemonName) {
         try {
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`);
