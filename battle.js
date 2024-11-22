@@ -37,12 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
             if (response.ok) {
                 return await response.json();
             } else {
-                alert(`Error: Pokémon "${pokemonName}" not found.`);
                 return null;
             }
         } catch (error) {
             console.error(`Failed to fetch data for ${pokemonName}:`, error);
-            alert("Failed to fetch Pokémon data. Please try again later.");
             return null;
         }
     }
@@ -67,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Dropdown populated successfully.");
         } catch (error) {
             console.error("Error populating dropdown:", error);
-            alert("Failed to load Pokémon list. Please try again later.");
         }
     }
 
@@ -131,7 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Randomized opponent Pokémon:", opponentPokemonQueue);
         } catch (error) {
             console.error("Error selecting random Pokémon:", error);
-            alert("Failed to select random Pokémon. Please try again.");
         }
     }
 
