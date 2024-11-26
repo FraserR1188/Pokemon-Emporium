@@ -51,16 +51,21 @@ var totalPairs;
 
 var gameOver = false; // New flag to control game state
 
+// This run's all functions on window load
 window.onload = function() {
-    shuffleCards();
-    startGame();
-    updateBestTimeDisplay();
+    shuffleCards(); // Shuffle cards before starting the game
+    startGame(); // Initialise the game board
+    updateBestTimeDisplay(); // Update the best time display if necessary
     adjustCardSize(); // Adjust card size on load
 
     // Add event listener for window resize
     window.addEventListener("resize", adjustCardSize);
 }
 
+
+/**
+ * This function adjusts card size depending on the screen width.
+ */
 function adjustCardSize() {
     let width = window.innerWidth;
 
@@ -81,8 +86,11 @@ function adjustCardSize() {
 
 }
 
+/**
+ * The function shuffles the cards and creates pairs.
+ */
 function shuffleCards() {
-    // this creates two of each card
+    // This creates two of each card for matching pairs.
     cardSet = cardList.concat(cardList);
     totalPairs = cardSet.length / 2; // Store the total number of pairs
 
@@ -96,6 +104,10 @@ function shuffleCards() {
     }
 }
 
+/**
+ * This function sets up and also starts the game board. It also adds the class to cards
+ * which gives them the flipping animation. 
+ */
 function startGame() {
     for (let r = 0; r < rows; r++) {
         let row = [];
@@ -132,7 +144,9 @@ function startGame() {
     }
 }
 
-// this goes through the board to create the back of the card
+/**
+ * This fucntion hides all cards by setting their image to the back of the card.
+ */
 function hideCards() {
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
@@ -143,6 +157,9 @@ function hideCards() {
     }
 }
 
+/**
+ * This function handles the card selection when a card is clicked.
+ */
 function selectCard() {
     // Don't allow selection if the game is over
     if (gameOver) return;
@@ -153,6 +170,7 @@ function selectCard() {
         timerStarted = true;
     }
 
+    // Ensure the clicked card isn't flipped
     if (!this.classList.contains("flipped")) {
         if (!card1Selected) {
             // First card selected
@@ -166,13 +184,15 @@ function selectCard() {
             // Check if they match after a short delay
             setTimeout(() => {
                 checkCardMatch();
-            }, 1000);
+            }, 500);
         }
     }
 }
 
 
-
+/**
+ * This fuction is to start the timer.
+ */
 function startTimer() {
     timer = setInterval(() => {
         elapsedTime++;
@@ -180,7 +200,9 @@ function startTimer() {
     }, 1000); // Update every second
 }
 
-
+/**
+ * This function is to check if two selected cards match.
+ */
 function checkCardMatch() {
     if (card1Selected && card2Selected) {
         // Check if the selected cards match
@@ -219,8 +241,9 @@ function checkCardMatch() {
     }
 }
 
-
-
+/**
+ * This function is to update the best time if a new best time is set.
+ */
 function updateBestTimeDisplay() {
     if (!bestTime || elapsedTime < bestTime) {
         bestTime = elapsedTime;
@@ -228,6 +251,9 @@ function updateBestTimeDisplay() {
     }
 }
 
+/**
+ * This function resets the game to the inital state.
+ */
 function resetGame() {
     // Clear the timer if it is running
     clearInterval(timer);
