@@ -49,6 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /**
+     * This function populates the dropdown menu with a list of Pokémon by fetching the list of the first 150 Pokémon
+     * from the PokeAPI. It loops through each Pokémon and adds an <option> element to eeach dropdown. The dropdown allows
+     * users to select which Pokémon they want to use in battle.
+     */
     async function populateDropdowns() {
         try {
             const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=150');
@@ -72,6 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /**
+     * This function handles user selection of a Pokémon. When the user selects a Pokémon from the dropdown, this function fetches the 
+     * Pokémon data, displays its sprite in the preview and prepares the Pokémon queue for battle. If all three user Pokémon are selected,
+     * the opponent Pokémon are also randomised and the battle is initiated.
+     */
     async function handleUserSelection(dropdownIndex) {
         const dropdown = pokemonDropdowns[dropdownIndex];
         const selectedPokemon = dropdown.value;
