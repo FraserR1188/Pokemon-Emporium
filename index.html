@@ -8,65 +8,83 @@
 </head>
 
 <body class="background-image">
+  <header>
     <h1 id="index-pokemon-header">Welcome to the Pokemon Emporium</h1>
-    <!--Buttons For Navigation-->
-    <button class="main-button" onclick="window.location.href = 'pokemon-memory.html'">Pokemon Memory Card Game</button>
-    <button class="main-button" onclick="window.location.href = 'pokemon-battle.html'">Pokemon Battlegrounds</button>
-    <button id="help-button" class="main-button">Which one to pick?</button>
-    <!--Modal Help Content-->
-    <div id="help-modal" class="modal">
+  </header>
+
+  <main>
+
+    <!-- Navigation Section -->
+    <section aria-labelledby="game-options">
+      <h2 id="game-options" class="visually-hidden">Game Options</h2>
+      <nav>
+        <ul>
+          <li><button class="main-button" onclick="window.location.href = 'pokemon-memory.html'">Pokemon Memory Card Game</button></li>
+          <li><button class="main-button" onclick="window.location.href = 'pokemon-battle.html'">Pokemon Battlegrounds</button></li>
+          <li><button id="help-button" class="main-button">Which one to pick?</button></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- Modal Help Content -->
+    <section id="help-modal" class="modal" role="dialog" aria-labelledby="help-title" aria-hidden="true">
       <div class="modal-content">
-        <span class="close">&times;</span>
+        <button class="close" aria-label="Close Help Modal">&times;</button>
+        <h2 id="help-title">Need Help Choosing?</h2>
         <p>The Pokemon memory card will test your memory to the extreme with authentic cards to choose from. With a current high score, you'll be addicted on trying to beat it!</p>
         <p>Or go to the Pokemon Battleground to fight with other Pokemon through a random generator. Who knows what Pokemon you'll be given!</p>
       </div>
-    </div>
+    </section>
 
-    <footer class="margin-footer" id="footer">
-      <div id="footer-container">
+    <!-- Email Modal Content -->
+    <section id="emailModal" class="modal" role="dialog" aria-labelledby="email-title" aria-hidden="true">
+      <div class="modal-content">
+        <button class="close" aria-label="Close Email Modal">&times;</button>
+        <h2 id="email-title">Send Us an Email</h2>
+        <form id="emailForm">
+          <label for="email">Your Email:</label>
+          <input type="email" id="email" name="email" required>
+                  
+          <label for="subject">Subject:</label>
+          <input type="text" id="subject" name="subject" required>
+                  
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+                  
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Content -->
+  <footer class="margin-footer" id="footer">
+    <div id="footer-container">
         <!-- Company Info -->
-        <div class="footer-box">
-          <h3>Fraser's Games</h3>
-          <p>Fraser's Games brings you the Pokemon Emporium.</p>
-        </div>
+        <section class="footer-box" aria-labelledby="company-info">
+            <h3 id="company-info">Fraser's Games</h3>
+            <p>Fraser's Games brings you the Pokemon Emporium.</p>
+        </section>
     
         <!-- Contact Info -->
-        <div class="footer-box">
-          <h3>Contact Us</h3>
-          <a href="#" id="openEmailModal">Email</a>
-        </div>
+        <section class="footer-box" aria-labelledby="contact-info">
+            <h3 id="contact-info">Contact Us</h3>
+            <a href="#" id="openEmailModal">Email</a>
+        </section>
     
         <!-- Social Media Links -->
-        <div class="footer-box">
-          <h3>Follow Us</h3>
-          <div id="footer-links">
-            <ul>
-              <li><a href="https://en-gb.facebook.com/" class="footer-icon"><img src="./assets/images/social-media-icons/facebook-icon.png"></a></li>
-              <li><a href="https://www.instagram.com/" class="footer-icon"><img src="./assets/images/social-media-icons/instagram-old-icon.png"></a></li>
-              <li><a href="https://www.youtube.com/" class="footer-icon"><img src="./assets/images/social-media-icons/youtube-icon.png"></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <div id="emailModal" class="modal">
-      <div class="modal-content">
-          <span class="close">&times;</span>
-          <h2>Send Us an Email</h2>
-          <form id="emailForm">
-              <label for="email">Your Email:</label>
-              <input type="email" id="email" name="email" required>
-              
-              <label for="subject">Subject:</label>
-              <input type="text" id="subject" name="subject" required>
-              
-              <label for="message">Message:</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-              
-              <button type="submit">Send</button>
-          </form>
-      </div>
-  </div>
+        <section class="footer-box" aria-labelledby="social-media">
+            <h3 id="social-media">Follow Us</h3>
+            <div id="footer-links">
+                <ul>
+                    <li><a href="https://en-gb.facebook.com/" class="footer-icon" target="_blank"><img src="./assets/images/social-media-icons/facebook-icon.png" alt="Facebook"></a></li>
+                    <li><a href="https://www.instagram.com/" class="footer-icon" target="_blank"><img src="./assets/images/social-media-icons/instagram-old-icon.png" alt="Instagram"></a></li>
+                    <li><a href="https://www.youtube.com/" class="footer-icon" target="_blank"><img src="./assets/images/social-media-icons/youtube-icon.png" alt="YouTube"></a></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</footer>
 </body>
 <script>
 
