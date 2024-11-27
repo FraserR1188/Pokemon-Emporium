@@ -8,25 +8,28 @@
     max-width: 100%;
 }
 
-body {
+.page-layout {
     font-family: "Sixtyfour Convergence", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 0 auto;
     height: 100%;
 }
 
 #index-pokemon-header {
-    font-size: 2.2rem;
+    font-family: "Sixtyfour Convergence", sans-serif;
+    font-size: 1.5rem;
     padding: 20px;
     text-align: center;
     background-color: #555;
-    margin-left: 200px;
-    margin-right: 200px;
     border: 2px solid black;
     border-radius: 10px;
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 /********************************Social Media Icons************************/
@@ -128,6 +131,13 @@ body {
     justify-content: center;
 }
 
+.game-option-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+}
+
 /********************************Page Header************************/
 
 .page-header {
@@ -152,6 +162,7 @@ body {
 }
 
 .margin-footer {
+    font-family: "Sixtyfour Convergence", sans-serif;
     margin-top: auto;
     width: 95%;
     padding-left: 10px;
@@ -428,6 +439,9 @@ button#battle-btn {
 /********************************Media Queries - Responsiveness************************/
 
 @media (max-width: 600px) {
+    #index-pokemon-header {
+        font-size: 1.2rem;
+    }
     /* Battle Arena */
     .battle-arena {
         flex-direction: column;
@@ -455,7 +469,7 @@ button#battle-btn {
 
 @media (max-width: 400px) {
     #index-pokemon-header {
-        font-size: 1.5rem;
+        font-size: 0.8rem;
     }
     #game-board {
         gap: 3px; /* Reduce the gap between cards */
@@ -489,6 +503,9 @@ button#battle-btn {
 }
 
 @media (max-width: 300px) {
+    #index-pokemon-header {
+        font-size: 0.5rem;
+    }
     #game-board {
         gap: 2px;
     }

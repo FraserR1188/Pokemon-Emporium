@@ -9,16 +9,18 @@
 
 <body class="background-image">
   <header>
-    <h1 id="index-pokemon-header">Welcome to the Pokemon Emporium</h1>
+    <div id="index-pokemon-header">
+      <h1>Welcome to the Pokemon Emporium</h1>
+    </div>
   </header>
 
-  <main>
+  <main class="page-layout">
 
     <!-- Navigation Section -->
     <section aria-labelledby="game-options">
       <h2 id="game-options" class="visually-hidden">Game Options</h2>
       <nav>
-        <ul>
+        <ul class="game-option-buttons">
           <li><button class="main-button" onclick="window.location.href = 'pokemon-memory.html'">Pokemon Memory Card Game</button></li>
           <li><button class="main-button" onclick="window.location.href = 'pokemon-battle.html'">Pokemon Battlegrounds</button></li>
           <li><button id="help-button" class="main-button">Which one to pick?</button></li>
