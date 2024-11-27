@@ -7,13 +7,20 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="background-image">
-    <h1 class="page-header">Pokemon Memory Card Game</h1>
 
-    <!--Buttons For Navigation-->
-    <div class="button-nav">
-      <button class="main-button" onclick="window.location.href = 'index.html'">Main Menu</button>
-      <button class="main-button" onclick="window.location.href = 'pokemon-battle.html'">Pokemon Battlegrounds</button>
-    </div>
+  <h1 class="pokemon-header">Pokemon Memory Card Game</h1>
+  
+  <main class="page-layout">
+
+    <!-- Navigation Section -->
+    <section aria-labelledby="game-options">
+      <nav>
+        <ul class="game-option-buttons">
+          <li><button class="main-button" onclick="window.location.href = 'index.html'">Home Page</button></li>
+          <li><button class="main-button" onclick="window.location.href = 'pokemon-battle.html'">Pokemon Battlegrounds</button></li>
+        </ul>
+      </nav>
+    </section>
 
     <!--Modal Help Content-->
     <button id="help-button" class="main-button">How to play</button>
@@ -29,8 +36,8 @@
     <div class="time-area">Timer:<span id="timer">0s</span></div>
     <div class="time-area">Time to beat:<span id="best-time"></span></div>
     <div id="game-board"></div>
-    <button class="main-button id="restart-button" onclick="resetGame()">Restart Game</button>
-
+    <button class="main-button" id="restart-button onclick="resetGame()">Restart Game</button>
+  </main>
     <footer class="margin-footer" id="footer">
       <div id="footer-container">
         <!-- Company Info -->
