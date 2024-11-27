@@ -17,6 +17,41 @@ window.onclick = function(event) {
   }
 }
 
+//Code for email modal
+
+document.addEventListener("DOMContentLoaded", function () {
+    const openModalButton = document.getElementById("openEmailModal");
+    const modal = document.getElementById("emailModal");
+    const closeModalButton = document.querySelector(".modal .close");
+
+    // Open the modal
+    openModalButton.addEventListener("click", function (e) {
+        e.preventDefault(); // Prevent default anchor behavior
+        modal.style.display = "block";
+    });
+
+    // Close the modal when clicking the close button
+    closeModalButton.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    // Close the modal when clicking outside of the modal content
+    window.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // Handle form submission (optional)
+    const emailForm = document.getElementById("emailForm");
+    emailForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        // Logic to send the form data via email (e.g., API call)
+        alert("Email sent successfully!");
+        modal.style.display = "none";
+    });
+});
+
 //List of pokemon which will be connected to the cards in the game
 var cardList = [
     "bulbasaur",

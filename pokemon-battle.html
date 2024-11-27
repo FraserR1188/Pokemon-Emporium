@@ -7,22 +7,30 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="background-image">
-  <h1 class="pokemon-header">Pokémon Battle Simulator</h1>
 
-  <!--Buttons For Navigation-->
-  <div class="button-nav">
-    <button class="main-button" onclick="window.location.href = 'pokemon-memory.html'">Pokemon Memory Card Game</button>
-    <button class="main-button" onclick="window.location.href = 'index.html'">Main Menu</button>
-  </div>
+  <main class="page-layout">
 
-      <!--Modal Help Content-->
-      <button id="help-button" class="main-button">How to play</button>
-      <div id="help-modal" class="modal">
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p>Pick your team of 3 Pokemon and when you pick your 3rd Pokemon your opponent will then pick their team. Keep battling until the winner prevails! Use the Reset Battle button to have another go!</p>
-        </div>
+    <h1 class="pokemon-header">Pokémon Battle Simulator</h1>
+
+    <!-- Navigation Section -->
+    <section aria-labelledby="game-options">
+      <nav>
+        <ul class="game-option-buttons">
+          <li><button class="main-button" onclick="window.location.href = 'index.html'">Home Page</button></li>
+          <li><button class="main-button" onclick="window.location.href = 'pokemon-memory.html'">Pokemon Memory Card Game</button></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!--Modal Help Content-->
+    <button id="help-button" class="main-button">How to play</button>
+    <section id="help-modal" class="modal" role="dialog" aria-labelledby="help-title" aria-hidden="true">
+      <div class="modal-content">
+        <button class="close" aria-label="Close Help Modal">&times;</button>
+        <h2 id="help-title">How to Play</h2>
+        <p>Pick your team of 3 Pokemon and when you pick your 3rd Pokemon your opponent will then pick their team. Keep battling until the winner prevails! Use the Reset Battle button to have another go!</p>
       </div>
+    </section>
 
     <!-- User Pokémon Selection (3 Pokémon) -->
     <div class="selection">
@@ -82,32 +90,36 @@
 
   <!-- Battle Logs -->
   <div id="battle-logs" class="logs"></div>
+  </main>
 
-    <footer class="margin-footer">
-        <div id="footer-container">
-          <!-- Company Info -->
-          <div class="footer-box">
-            <h3>Fraser's Games</h3>
+  <!-- Footer Content -->
+  <footer class="margin-footer" id="footer">
+    <div id="footer-container">
+        <!-- Company Info -->
+        <section class="footer-box" aria-labelledby="company-info">
+            <h3 id="company-info">Fraser's Games</h3>
             <p>Fraser's Games brings you the Pokemon Emporium.</p>
-          </div>
-          <!-- Contact Info -->
-          <div class="footer-box">
-            <h4>Contact Us</h4>
-            <p>Email</p>
-          </div>
-          <!-- Social Media Links -->
-          <div class="footer-box">
-            <h4>Follow Us</h4>
+        </section>
+    
+        <!-- Contact Info -->
+        <section class="footer-box" aria-labelledby="contact-info">
+            <h3 id="contact-info">Contact Us</h3>
+            <a href="#" id="openEmailModal">Email</a>
+        </section>
+    
+        <!-- Social Media Links -->
+        <section class="footer-box" aria-labelledby="social-media">
+            <h3 id="social-media">Follow Us</h3>
             <div id="footer-links">
-              <ul>
-                <li><a href="https://en-gb.facebook.com/" class="footer-icon"><img src="./assets/images/social-media-icons/facebook-icon.png"></a></li>
-                <li><a href="https://www.instagram.com/" class="footer-icon"><img src="./assets/images/social-media-icons/instagram-old-icon.png"></a></li>
-                <li><a href="https://www.youtube.com/" class="footer-icon"><img src="./assets/images/social-media-icons/youtube-icon.png"></a></li>
-              </ul>
+                <ul>
+                    <li><a href="https://en-gb.facebook.com/" class="footer-icon" target="_blank"><img src="./assets/images/social-media-icons/facebook-icon.png" alt="Facebook"></a></li>
+                    <li><a href="https://www.instagram.com/" class="footer-icon" target="_blank"><img src="./assets/images/social-media-icons/instagram-old-icon.png" alt="Instagram"></a></li>
+                    <li><a href="https://www.youtube.com/" class="footer-icon" target="_blank"><img src="./assets/images/social-media-icons/youtube-icon.png" alt="YouTube"></a></li>
+                </ul>
             </div>
-          </div>
-        </div>
-      </footer>
+        </section>
+    </div>
+  </footer>
 
     <script src="battle.js"></script>
 </body>
