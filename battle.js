@@ -106,6 +106,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /**
+     * This function prepares the user's selected Pokémon for battle. It clears the user's Pokémon queue and the iterates through each 
+     * dropdown to fecth the selected Pokémon data. For each selected Pokémon, it calls extractBattleStats() to obtain the battle-relevant
+     * information (stats and moves) and then adds this data to the userPokemonQueue.
+     */
     async function prepareUserPokemonQueue() {
         userPokemonQueue = [];
         for (let dropdown of pokemonDropdowns) {
@@ -120,6 +125,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /**
+     * This function randomly selects three Pokémon for the opponent from the list of Pokémon from the PokéAPI. For each selected Pokémon,
+     * it fetches their data and extracts their battle stats by calling extractBattleStats(). These Pokémon are then addedd to the 
+     * opponentPokemonQueue.
+     */
     async function randomizeOpponentPokemon() {
         try {
             const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=150');
@@ -145,6 +155,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /**
+     * This function extracts battle-relevant statistics from Pokémon data e.g. HP, attack, defense and speed. It also selects up to four
+     * random level-up moves from the Pokémon data. It returns an object containing thw Pokémon's name, HP, stats, moves, and sprite URL,
+     * this is then used in battle.
+     */
     async function extractBattleStats(pokemonData) {
         // Filter moves to only include level-up moves
         const levelUpMoves = pokemonData.moves.filter(moveEntry => 
@@ -172,6 +187,11 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
+    /**
+     * This function initialises the battle by displaying the current Pokémon for each side. The first Pokémon from both user and opponenet
+     * queues are selected for battle. The function then calls updatePokemonDisplay() to display the Pokémon names, images, and HP bars for
+     * both the user and opponent Pokémon and then calls displayUserMoves() to show the moves for the user's current Pokémon.
+     */
     function startBattle() {
         userCurrentPokemon = userPokemonQueue.shift();
         opponentCurrentPokemon = opponentPokemonQueue.shift();
@@ -180,6 +200,10 @@ document.addEventListener("DOMContentLoaded", () => {
         displayUserMoves();
     }
 
+    /**
+     * This function updates the DOM tro display the details of a given Pokémon. It also replaces a placeholder (Pokéball image) with the
+     * actual sprite of the Pokémon.
+     */
     function updatePokemonDisplay(pokemon, nameId, imgId, hpId) {
         const nameElem = document.getElementById(nameId);
         const imgElem = document.getElementById(imgId);
@@ -191,6 +215,10 @@ document.addEventListener("DOMContentLoaded", () => {
         updateHpBar(hpId, pokemon.hp, pokemon.maxHp);
     }
 
+    /**
+     * This function updates the HP bar for a given Pokémon by calculating the percentage of HP remaining and updates the width accordingly
+     * The colour also changes based on percentage remaining: green (>50%), orange (20-50%), or red (<20%).
+     */
     function updateHpBar(pokemonId, currentHp, maxHp) {
         const hpBar = document.getElementById(pokemonId);
         if (!hpBar) {
@@ -211,6 +239,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /**
+     * This function displays the user's Pokémon moves as buttons. Clears any existing move buttons and iterates through the moves of the user's
+     * current Pokémon to create buttons for each move.
+     */
     function displayUserMoves() {
         userMovesContainer.innerHTML = ""; // Clear previous moves
         if (userCurrentPokemon && userCurrentPokemon.moves) {
@@ -224,6 +256,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /**
+     * This function 
+     */
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
