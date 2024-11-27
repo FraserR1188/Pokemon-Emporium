@@ -257,12 +257,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /**
-     * This function 
+     * This function capitlises the first letter of a string which is used for move names or Pokémon names for display purposes.
      */
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
-
+    
+    /**
+     * This function handles the players turn in battle. If the battle is not over, the player's selected move is to attack the opponent's
+     * Pokémon. The damage is dealt and the oppponent's HP is reduced. It then goes on to check if the opponents Pokémon has fainted and if
+     * so switches to the next opponent Pokémon or ends the battle if no more Pokémon remain.
+     */
     async function playerTurn(selectedMove) {
         if (battleOver) return; // Prevent any further action if the battle is over
 
@@ -291,6 +296,11 @@ document.addEventListener("DOMContentLoaded", () => {
         await opponentTurn();
     }
 
+    /**
+     * This function handles the opponent's turn where by it selects a random move and attacks the user's Pokémon. Damage is calculated, 
+     * and the user's HP is reduced. If the user's Pokémon faints, the next one in the queue is selected, or the battle ends if no Pokémon 
+     * remain.
+     */
     async function opponentTurn() {
         if (battleOver) return; // Prevent any further action if the battle is over
 
@@ -318,12 +328,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /**
+     * This function ends the battle and announces the winner.  Sets battleOver to true, logs the winner in the battle log, and 
+     * disables all move buttons to prevent further interactions.
+     */
     function endBattle(winner) {
         battleOver = true;
         logBattleEvent(`${winner} has won the battle!`);
         disableMoveButtons();
     }
 
+    /**
+     * This function disables all user move buttons once the battle over. It iterates through all move buttons and sets their 
+     * disabled property to true.
+     */
     function disableMoveButtons() {
         const moveButtons = userMovesContainer.querySelectorAll('button');
         moveButtons.forEach(button => {
@@ -331,6 +349,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    /**
+     * This function fetches the power of a given Pokémon move. Takes a URL pointing to move data in the PokéAPI and fetches
+     * the power of that move. If no power is available or an error occurs, it defaults to 50.
+     */
     async function fetchMovePower(moveUrl) {
         try {
             const response = await fetch(moveUrl);
@@ -342,12 +364,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /**
+     * This function calculates the damage dealth by an attack. Uses a formula to calculate base damage considering the move
+     *  power, attacker attack, and defender defense. Adds a random factor (between 85% and 100%) to simulate variability in 
+     * damage. The function ensures at least 1 HP of damage is dealt.
+     */
     function calculateDamage(attacker, defender, movePower) {
         const baseDamage = ((2 * 50 / 5 + 2) * movePower * (attacker.attack / defender.defense)) / 50 + 2;
         const randomFactor = (Math.floor(Math.random() * 16) + 85) / 100;
         return Math.max(1, Math.floor(baseDamage * randomFactor));
     }
 
+    /**
+     * This function logs battle in the UI. Creates a new paragraph element with the provided text (e.g., move used, Pokémon 
+     * fainting) and appends it to the battleLogs container. This is used to provide feedback to the player about the battle's 
+     * progress.
+     */
     function logBattleEvent(event) {
         const logEntry = document.createElement('p');
         logEntry.textContent = event;
@@ -355,6 +387,11 @@ document.addEventListener("DOMContentLoaded", () => {
         battleLogs.scrollTop = battleLogs.scrollHeight;
     }
 
+    /**
+     * This function resets the game to its initial state. Clears dropdown selections, resets Pokémon queues, hides images, 
+     * and sets them back to the default Pokéball image. Clears battle logs, resets HP bars, and moves so that the player 
+     * can start over.
+     */
     function resetBattle() {
         // Reset dropdowns
         pokemonDropdowns.forEach(dropdown => {
@@ -383,6 +420,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    /**
+     * This function clears the display information for a given Pokémon. Resets the Pokémon name, sets the image back to 
+     * a Pokéball, and resets the HP bar to 100%. This is called when resetting the battle.
+     */
     function clearPokemonDisplay(nameId, imgId, hpId, defaultName) {
         // Set default text for name
         const nameElem = document.getElementById(nameId);
