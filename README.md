@@ -113,6 +113,11 @@ https://www.schemecolor.com/pokemon-colors.php
 ## Features
 
 ### Existing Features
+
+#### Homepage
+
+- This is the homepage which allows the user to access either the Memory Card game or the Battlegrounds game.
+
 #### Pokemon Memory Card Game:
 
  - The game features 10 different cards (within the JavaScript this is x2 so there are 10 pairs) which are facing back to the user. When clicked on the card flips through a smooth transition.
@@ -170,6 +175,8 @@ https://www.schemecolor.com/pokemon-colors.php
 ## Deployment
 
 ### Creating a Gitpod Workspace
+
+The project was created in Gitpod using the Code Institute Gitpod Full Template as follows:
 
 
 
