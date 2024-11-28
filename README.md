@@ -135,21 +135,61 @@ I used these specific images for the footer to keep with the gaming feel of the 
 
 #### Homepage
 
+<img src="assets/images/readme-images/index-feature.png">
+
 - This is the homepage which allows the user to access either the Memory Card game or the Battlegrounds game.
+
+<img src="assets/images/readme-images/index-which-one.png">
+
+- There a modal "Which one to pick?" which explains to the user what each game is about.
+- I intended on having buttons in the middle of the screen to centre the user's attention.
+
+<img src="assets/images/readme-images/index-footer.png">
+
+- This also has the footer which is present on all pages.
+
+<img src="assets/images/readme-images/email-modal.png">
+
+- There is also an email modal which is present in the footer across all pages which is for any user to submit information regarding the website. Good or bad!
 
 #### Pokemon Memory Card Game:
 
- - The game features 10 different cards (within the JavaScript this is x2 so there are 10 pairs) which are facing back to the user. When clicked on the card flips through a smooth transition.
- - Once the first card is flipped the timer starts and once the last pair have matched the timer stops and logs the time for the player to try and beat.
- - There is also a reset button in case the player wants to start again any time throughout playing.
+<img src="assets/images/readme-images/memory-game-nav.png">
+
+- These are the navigation buttons which allow the user to go back to index/home page or tavel through to the Battlegound page and continue the adventure.
+
+<img src="assets/images/readme-images/memory-game-board.png">
+
+- The game features 10 different cards (within the JavaScript this is x2 so there are 10 pairs) which are facing back to the user. When clicked on the card flips through a smooth transition.
+- Once the first card is flipped the timer starts and once the last pair have matched the timer stops and logs the time for the player to try and beat.
+- There is also a reset button in case the player wants to start again any time throughout playing.
+
+<img src="assets/images/readme-images/memory-game-how-to.png">
+
+- This is a help modal which explains to the user how to play the game.
+
 
 #### Pokemon Battlegrounds:
+
+<img src="assets/images/readme-images/battleground-nav.png">
+
+- These are the navigation buttons which allows the user to go back to memory card game or go to the home page. It also has the help modal.
+
+<img src="assets/images/readme-images/battleground-how-to.png">
+
+- This is the help modal which explains to the user how the game works.
+
+<img src="assets/images/readme-images/battleground-rest.png">
 
 - This game will ask the user to select 3 Pokemon from a dropdown box in which they can use to fight/interact with the computer.
 - Once the user selects the Pokemon a sprite will appear, the user can keep changing until they select the last of the 3 and then the battle will commence.
 - The game is turn-based and the user will have the option of 4 attack moves to use against the computer.
 - The attacks will go back and forth until the team's last Pokemon has fainted and then a message will pop up in the battle logs saying who won.
 - There is a reset button which allows the user to battle again.
+
+<img src="assets/images/readme-images/battleground-in-action.png">
+
+- This is what the game looks like when the previous steps are in motion.
 
 ### Future Features
 #### Pokemon Memory Card Game:
