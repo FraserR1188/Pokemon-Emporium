@@ -8,6 +8,9 @@
     max-width: 100%;
 }
 
+.page-container {
+}
+
 .page-layout {
     font-family: "Sixtyfour Convergence", sans-serif;
     display: flex;
@@ -177,9 +180,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     text-align: center;
-    position: relative;
     bottom: 0;
-    height: auto;
 }
 
 
