@@ -22,7 +22,13 @@ window.onclick = function(event) {
 document.addEventListener("DOMContentLoaded", function () {
     const openModalButton = document.getElementById("openEmailModal");
     const modal = document.getElementById("emailModal");
-    const closeModalButton = document.querySelector(".modal .close");
+    const closeModalButton = modal.querySelector(".close");
+
+    // Verify button exists
+    if (!closeModalButton) {
+        console.error("Close button not found");
+        return;
+    }
 
     // Open the modal
     openModalButton.addEventListener("click", function (e) {
@@ -41,16 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
             modal.style.display = "none";
         }
     });
-
-    // Handle form submission (optional)
-    const emailForm = document.getElementById("emailForm");
-    emailForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        // Logic to send the form data via email (e.g., API call)
-        alert("Email sent successfully!");
-        modal.style.display = "none";
-    });
 });
+
 
 //List of pokemon which will be connected to the cards in the game
 var cardList = [

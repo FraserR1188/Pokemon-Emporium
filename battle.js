@@ -17,6 +17,36 @@ window.onclick = function(event) {
   }
 }
 
+// Code for the Email Modal
+document.addEventListener("DOMContentLoaded", function () {
+    const openModalButton = document.getElementById("openEmailModal");
+    const modal = document.getElementById("emailModal");
+    const closeModalButton = modal.querySelector(".close");
+
+    // Verify button exists
+    if (!closeModalButton) {
+        console.error("Close button not found");
+        return;
+    }
+
+    // Open the modal
+    openModalButton.addEventListener("click", function (e) {
+        e.preventDefault(); // Prevent default anchor behavior
+        modal.style.display = "block";
+    });
+
+    // Close the modal when clicking the close button
+    closeModalButton.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    // Close the modal when clicking outside of the modal content
+    window.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     const pokemonDropdowns = [document.getElementById('pokemon1'), document.getElementById('pokemon2'), document.getElementById('pokemon3')];
