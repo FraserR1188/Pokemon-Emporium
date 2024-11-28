@@ -185,6 +185,8 @@ I used these specific images for the footer to keep with the gaming feel of the 
 	- I used this for debugging and respsonsiveness throughout the project build.
 - [Coolors](https://coolors.co/)
 	- I used this website to create the palette for the coloures which are used in the project.
+- [Alpha Coders](https://alphacoders.com/pokemon-4k-wallpapers)
+	- This is where I obtained the background image used throughout the website.
 
 ### Application Programming Interface (API's)
 
@@ -200,23 +202,53 @@ I used these specific images for the footer to keep with the gaming feel of the 
 
 The project was created in Gitpod using the Code Institute Gitpod Full Template as follows:
 
-
+1. Log in to GitHub and go to the [Code Institute student template for Gitpod](https://github.com/Code-Institute-Org/gitpod-full-template)
+2. Click 'Use this Template' next to the Green Gitpod button.
+3. Add a repository name and click 'Create reposiory from template'.
+4. This will create a copy of the template in your own repository. Now you can click the green 'Gitpod' button to open a workspace in Gitpod.
 
 ### GitHub Pages
 
+The project was deployed using GitHub pages as follows:
 
+1. Log in to GitHub and go to the [GitHub Repository](https://github.com/FraserR1188/Pokemon-Emporium)
+2. Locate the Navbar at the top of the Repository (not top of page). Click the Settings tab.
+3. Locate the Navbar on the left hand side of the page. Click the "Pages" section (under 'Code and automation').
+4. Under "Source", click the dropdown called "None" and select "main". Click save.
+5. The page will automatically refresh.
+6. A notification will appear at the top of the page with the [link](https://github.com/FraserR1188/Pokemon-Emporium/blob/main/index.html) to the deployed site. You can return to this GitHub Pages section to access the link.
 
 ### Forking the GitHub Repository
 
+Forks are used to propose changes to someone else's project or to use someone else's project as a starting point for your own idea. By forking the GitHub Repository you make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository.
 
+To Fork a Github Repository:
+
+1. Log in to GitHub and go to the [GitHub Repository](https://github.com/FraserR1188/Pokemon-Emporium)
+2. Locate the Fork button in the top-right corner of the page, click Fork.
+3. You should now have a copy of the original repository in your GitHub account.
 
 ### Making a Local Clone
 
+You will now have a fork of the repository, but you don't have the files in that repository locally on your computer.
 
+To clone this project into Gitpod you will need:
+1. A Github account. Create a Github account here. [https://github.com/](https://github.com/)
+2. Use the Chrome browser.
+
+Then follow:
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/FraserR1188/Pokemon-Emporium)
+2. Then select Code button and then under the Local tab copy the link in the HTTPS tab.
+3. Open Git Bash.
+4. Change the current working directory to the location where you want the cloned directory to be made.
+5. Type git clone, and then paste the URL you copied in step 3.
+6. Press Enter. Your local clone will be created.
+
+More a more in-depth process click [here.](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
 
 ## Credits
-- W3Schools for coding advice.
-- https://alphacoders.com/pokemon-4k-wallpapers
+- I used W3C schools and Stackover Flow for further understanding from the content through the Code Institute.
 
 Problems with the memory card game:
 
