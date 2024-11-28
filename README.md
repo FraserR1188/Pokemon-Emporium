@@ -104,8 +104,7 @@ These are the owners of the website
 
 ### Images
 - Images are a main criteria throughout the website. The main memory card game will comprise of 20 cards (10 pairs) which I will obtain from the official TCG website.
-- [TCG Pokemon Card Website](https://www.pokemon.com/us/pokemon-tcg/pokemon-cards)
-- Images for the Pokedex will come from Pokemon API which will be shown inside the Pokemon Battlegrounds.
+- Images for the Pokedex section will come from Pokemon API which will be shown inside the Pokemon Battlegrounds.
 
 ### Colour Scheme
 The colours which are present throughout are as follows:
@@ -187,6 +186,8 @@ I used these specific images for the footer to keep with the gaming feel of the 
 	- I used this website to create the palette for the coloures which are used in the project.
 - [Alpha Coders](https://alphacoders.com/pokemon-4k-wallpapers)
 	- This is where I obtained the background image used throughout the website.
+-  [TCG Pokemon Card Website](https://www.pokemon.com/us/pokemon-tcg/pokemon-cards)
+	- This is where I obtained all the cards used in the Memory Card game.
 
 ### Application Programming Interface (API's)
 
@@ -194,7 +195,8 @@ I used these specific images for the footer to keep with the gaming feel of the 
 	- I used the RESTful Pokemon API to obtain the data for the Pokemon Battlegrounds including sprites/attack moves/types.
 
 ## Testing 
-(This will have it's own separate section on the game file.)
+
+- Please refer [here](TESTING.md) for all the information regarding testing of the Pokemon Emporium Website.
 
 ## Deployment
 

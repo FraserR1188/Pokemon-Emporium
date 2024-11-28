@@ -230,6 +230,10 @@
     margin-right: 10px;
 }
 
+#openEmailModal {
+    text-decoration: none;
+}
+
 /********************************Memory Card Game************************/
 
 #game-board {
