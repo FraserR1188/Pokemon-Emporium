@@ -2,7 +2,7 @@
 
 ## Milestone Project 2 - Interactive Front-End Site
 
-(This is spacing for the main image once project is complete)
+<img src="assets/images/readme-images/main-project-image.png">
 
 - The Pokemon Emporium is aimed at children from ages 5 onwards as well as anyone who has a keen interest in Pokemon. It features a memory card game which will contain authentic cards, which will allow the user to gain a score. It will also feature a Pokedex allowing the user to access Pokemon details.
 - This is my Milestone Project 2 submission for Code Institutes Diploma in Web Application Development Course. My website features 3 webpages and is built using HTML, CSS and JavaScript.
@@ -10,11 +10,11 @@
 
 ## Project Link
 
-(Link to the project)
+[View the live project here](https://fraserr1188.github.io/Pokemon-Emporium/index.html)
 
 ## Repository
 
-(Link to repo)
+[Find the project repository](https://github.com/FraserR1188/Pokemon-Emporium)
 
 # Table of Contents
 
@@ -32,6 +32,7 @@
 	* [Images](#images)
 	* [Colour Scheme](#color-scheme)
 	* [Wireframes](#wireframes)
+	* [Icons](#icons)
 
 4.  [Features](#features)
 	* [Existing features](#exisiting-features)
@@ -108,7 +109,26 @@ These are the owners of the website
 
 ### Colour Scheme
 The colours which are present throughout are as follows:
-https://www.schemecolor.com/pokemon-colors.php
+
+<img src="assets/images/readme-images/project-colour-scheme.png">
+
+I used as the red and yellow for the Pokemon theme but the blue was too harsh for UX. The other colours worked well with the website. 
+
+### Wireframes
+These are the wireframes which I based my project around.
+
+<img src="assets/images/readme-images/index-wireframe.png">
+
+<img src="assets/images/readme-images/memory-game-wireframe.png">
+
+<img src="assets/images/readme-images/pokedex-wireframe.png">
+
+The final wireframe shown here was drastically changed during development. Me and my mentor had a discuss to make it more interactive and went from a static display of a Pokedex to a Battleground. The extended the development but definitely makes it more enjoyable for the user.
+
+### Icons
+I used these specific images for the footer to keep with the gaming feel of the project.
+
+<img src="assets/images/readme-images/footer-icons.png">
 
 ## Features
 
@@ -163,6 +183,8 @@ https://www.schemecolor.com/pokemon-colors.php
 	- Where I created my wireframes for the project.
 - [Google Chrome Dev Tools](https://www.google.com/chrome/dev/)
 	- I used this for debugging and respsonsiveness throughout the project build.
+- [Coolors](https://coolors.co/)
+	- I used this website to create the palette for the coloures which are used in the project.
 
 ### Application Programming Interface (API's)
 
