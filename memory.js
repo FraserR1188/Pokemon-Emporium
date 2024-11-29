@@ -5,17 +5,17 @@ var span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function() {
   modal.style.display = "block";
-}
+};
 
 span.onclick = function() {
   modal.style.display = "none";
-}
+};
 
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
 
 //Code for email modal
 
@@ -62,7 +62,7 @@ var cardList = [
     "mewtwo",
     "pidgeotto",
     "pikachu"
-]
+];
 
 //these variables are for creating the board
 var cardSet;
@@ -93,7 +93,7 @@ window.onload = function() {
 
     // Add event listener for window resize
     window.addEventListener("resize", adjustCardSize);
-}
+};
 
 
 /**
@@ -174,19 +174,6 @@ function startGame() {
             document.getElementById("game-board").append(card);
         }
         board.push(row);
-    }
-}
-
-/**
- * This fucntion hides all cards by setting their image to the back of the card.
- */
-function hideCards() {
-    for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < columns; c++) {
-            let card = document.getElementById(r.toString() + "-" + c.toString());
-            let cardBack = card.querySelector(".card-back");
-            cardBack.style.backgroundImage = "url('assets/images/back-card/pokemon-card-back-1.avif')";
-        }
     }
 }
 
