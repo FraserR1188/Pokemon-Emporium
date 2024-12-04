@@ -144,24 +144,23 @@ I also personally tested the website on iPhone 13, iPhone 11 and MSI gaming PC w
 ### Parents
 
 - As a parent, I would like if the website was children friendly.
-    - 
+    - This is a child friendly website which contains easy to understand helpful hints and straightforward user design.
 - As a parent, I would like to be able to contact the business owners of the website in case I have any queries or problems.
-    - 
+    - There are email access modals on every page within the footer of the website.
 
 ### Pokemon Fanatics
 
 - As a Pokemon fanatic, I would like to see a variation of Pokemon cards which I can play with.
-    - 
+    - There are a variation of different Pokemon present within the deck that is present in the game.
 - As a Pokemon fanatic, I would like to to be able to pick my own Pokemon team and fight against an oppenent.
-    - 
+    - There are 3 Pokemon selection points which enable the user to select what Pokemon they want.
 - As a Pokemon fanatic, I would like to see pictures of the Pokemon I select and attack moves which are genuine to the Pokemon themselves.
-    - 
+    - When the user selects a Pokemon an image appears of the Pokemon.
+    - When the fight starts attacks moves are present and are also genuine to that type of Pokemon.
 - As a Pokemon fanatic, I would like to see that genuine Pokemon cards are used in the memory card game.
-    - 
+    - The cards which are used have been taken from the TCG database which is offical Trading Card Game website.
 - As a Pokemon fanatic, I would like to pick from the original 150 Pokemon to fight with.
-    - 
-- As a Pokemon fanatic, I would like to see a picture of the Pokemon I choose.
-    - 
+    - When the user selects on the dropdown list, only the original 150 can be selected.
 
 ### Business Owners
 
