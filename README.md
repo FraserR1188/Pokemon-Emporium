@@ -70,6 +70,8 @@ These are users who like to spending time playing causal games whether they like
 - As a game user, I would to play on any device.
 - As a game user, I would to have a helpful reminder on how to play the game if I get stuck.
 - As a game user, I would like some sort of competition between the computer and myself to keep me enticed.
+- As a game user, I would like to be able to pick from a list of Pokemon which I can fight with.
+- As a game user, I would like to have a range of attack moves which I can use against the computer.
 
 #### Parents:
 
@@ -86,6 +88,8 @@ These are users who are avid Pokemon hobbyists and have a keen interest in all t
 - As a Pokemon fanatic, I would like to to be able to pick my own Pokemon team and fight against an oppenent.
 - As a Pokemon fanatic, I would like to see pictures of the Pokemon I select and attack moves which are genuine to the Pokemon themselves.
 - As a Pokemon fanatic, I would like to see that genuine Pokemon cards are used in the memory card game.
+- As a Pokemon fanatic, I would like to pick from the original 150 Pokemon to fight with.
+- As a Pokemon fanatic, I would like to see a picture of the Pokemon I choose.
 
 #### Business Owners
 

@@ -121,17 +121,25 @@ I also personally tested the website on iPhone 13, iPhone 11 and MSI gaming PC w
 ### Game Users
 
 - As a game user, I would like have a timer counter.
-    - 
+    - There is a timer counter present in the Pokemon Memory Card Game which starts when the first card is flipped.
+    - A time to beat section is there as well to make the player stay to compete with themselves.
 - As a game user, I would like to have smooth transitions when selecting the cards.
-    - 
+    - I have implement custom CSS to have a smooth transition animation when the game user selects a card.
 - As a game user, I would to have an eye-catching website to draw me in and make me want to play more than one game.
-    - 
+    - The main picture in the background through-out the website is of a range of Pokemon which is nice to look at.
+    - Buttons which are present have a nice effect on them which is pleasing to use.
+    - The font has a retro gaming vibe which would add to the effect.
 - As a game user, I would to play on any device.
-    - 
+    - This website has been tested on several devices and browsers which allows playability anywhere.
 - As a game user, I would to have a helpful reminder on how to play the game if I get stuck.
-    - 
+    - How to play modals are present on both sections of the website.
+    - Navigation help modal is also present on the home page.
 - As a game user, I would like some sort of competition between the computer and myself to keep me enticed.
-    - 
+    - The Memory Card game has a self competition from the time-to-beat section.
+- As a game user, I would like to be able to pick from a list of Pokemon which I can fight with.
+    - A dropdown list is used on the Battle Simulator which allows the user to select from 150 Pokemon.
+- As a game user, I would like to have a range of attack moves which I can use against the computer.
+    - There are attack moves which the user can select from the what level the Pokemon is.
 
 ### Parents
 
@@ -149,6 +157,10 @@ I also personally tested the website on iPhone 13, iPhone 11 and MSI gaming PC w
 - As a Pokemon fanatic, I would like to see pictures of the Pokemon I select and attack moves which are genuine to the Pokemon themselves.
     - 
 - As a Pokemon fanatic, I would like to see that genuine Pokemon cards are used in the memory card game.
+    - 
+- As a Pokemon fanatic, I would like to pick from the original 150 Pokemon to fight with.
+    - 
+- As a Pokemon fanatic, I would like to see a picture of the Pokemon I choose.
     - 
 
 ### Business Owners
