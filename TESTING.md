@@ -165,13 +165,16 @@ I also personally tested the website on iPhone 13, iPhone 11 and MSI gaming PC w
 ### Business Owners
 
 - As a business owner, I want my website to accessible and user friendly on any device.
-    - 
+    - This website is accesible on all devices and scores above 94 on the accessibility section in the Lighthouse testing.
 - As a business owner, I want my website to have links to social media outlets.
-    - 
+    - There are links in the footer for social media outlets.
 - As a business owner, I want people to learn more about Pokemon in a fun way.
-    - 
+    - The imgary helps with this. User's can see the Pokemon that they want to fight with which gives a visual representation.
+    - The attack moves also give a better understanding of the Pokemon.
 - As a buisness owner, I would want scablitily and room for more features to be implemented.
-    - 
+    - The Battle Simulator can allow more Pokemon in a team.
+    - The Battle Simulator could keep score of how many battles have taken place and who's won what.
+    - The Memory Card Game could have a difficulty mode e.g. easy, medium and hard, scaling with how many cards are present on the table.
 
 ## Manual Testing
 
