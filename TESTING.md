@@ -9,19 +9,18 @@ The Pokemon Emporium has been tested using the following methods:
     - [JSHINT Javascript Code Quality Tool](#js-hint-code-quality-tool)
 2. [Google Lighthouse](#google-lighthouse)
 3. [Responsiveness](#responsivenss)
-4. [A11y Color Contrast Accessibility Checker](#a11y-color-contrast-accessibility-checker)
-5. [Browser Compatibility](#browser-compatibility)
-6. [Testing User Stories](#testing-user-stories)
+4. [Browser Compatibility](#browser-compatibility)
+5. [Testing User Stories](#testing-user-stories)
     - [Game Users](#game-users)
     - [Parents](#parents)
     - [Pokemon Fantatics](#pokemon-fanatics)
     - [Buisness Owners](#business-owners)
-7. [Manual Testing](#manual-testing)
+6. [Manual Testing](#manual-testing)
     - [Index Page](#index-page)
     - [Pokemon Memory Card Game](#pokemon-memory-card-game)
     - [Pokemon Battle Simulator](#pokemon-battle-simulator)
-8. [Peer Review](#peer-review)
-9. [Bugs](#bugs)
+7. [Peer Review](#peer-review)
+8. [Bugs](#bugs)
 
 # Code Validation
 
@@ -51,13 +50,15 @@ Testing for the website's CSS was carried out through the W3C CSS Validator whic
 
 ### index.js
 
+<img src="assets/images/testing-images/jshint-index.png">
 
 ### memory.js
 
+<img src="assets/images/testing-images/memory-jshint.png">
 
 ### battle.js
 
-
+<img src="assets/images/testing-images/battle-jshint.png">
 
 ## Google Lighthouse
 
@@ -92,9 +93,6 @@ This is the testing result on a desktop.
 <img src="assets/images/testing-images/battle-lighthouse-mobile.png">
 
 This is the testing result on a mobile.
-
-## A11y Color Contrast Accessibility Checker
-
 
 ## Browser Compatibility
 

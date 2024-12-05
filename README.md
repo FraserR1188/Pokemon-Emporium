@@ -297,5 +297,3 @@ More a more in-depth process click [here.](https://docs.github.com/en/pages/gett
 - I used W3C schools and Stackover Flow for further understanding from the content through the Code Institute.
 - Many thanks to my mentor Mikto for guiding me the way.
 - The guys from Code Institute helped me a lot as well.
-
-issues with the index.html. Created a hidden-div to stop the footer overlapping the buttons on a mobile view.
