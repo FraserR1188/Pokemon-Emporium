@@ -55,9 +55,9 @@
 	* [Acknowledgements]
 
 ## Project Goals
-This website is dedicated to the love of Pokemon and targets to main fanbases, Pokemon Cards and also the game itself with the Pokedex aspect. The memory card is light hearted with a timer and a time to beat rather than a countdown timer to make less stressful and more fun to play and also to play again.
+This website is dedicated to the love of Pokemon and targets to main fanbases, people who enjoy Pokemon cards and also the game itself with the Battleground aspect. The memory card is light hearted with a timer and a time to beat rather than a countdown timer to make less stressful and more fun to play and also to play again.
 
-There is also a section on the website called Pokemon Battlegrounds where the user and come and pick three Pokemon and fight against the computer. 
+There is also a section on the website called Pokemon Battlegrounds where the user will come and pick three Pokemon and fight against the computer. 
 
 ## User Stories
 #### Game Users:
@@ -93,7 +93,7 @@ These are users who are avid Pokemon hobbyists and have a keen interest in all t
 
 #### Business Owners
 
-These are the owners of the website
+These are the owners of the website.
 
 - As a business owner, I want my website to accessible and user friendly on any device.
 - As a business owner, I want my website to have links to social media outlets.
@@ -104,11 +104,11 @@ These are the owners of the website
 ### Typography
 
 - The main font which I'll use throughout the website is Sixtyfour Convergence which is obtained from Google Fonts. This type of font has a retro-gaming vibe which I feel would go well with the gaming style of website. I will use Sans Serif as a fall back font.
-- There won't be much text on the website but if I feel that the main font doesn't read well. I use Roboto Mono as this still has a retro vibe but is more readable.
+- There won't be much text on the website but if I feel that the main font doesn't read well I will use Roboto Mono as this still has a retro vibe but is more readable.
 
 ### Images
 - Images are a main criteria throughout the website. The main memory card game will comprise of 20 cards (10 pairs) which I will obtain from the official TCG website.
-- Images for the Pokedex section will come from Pokemon API which will be shown inside the Pokemon Battlegrounds.
+- Images for the Battleground section will come from Pokemon API which will be shown inside the Pokemon Battlegrounds.
 
 ### Colour Scheme
 The colours which are present throughout are as follows:
@@ -199,7 +199,7 @@ I used these specific images for the footer to keep with the gaming feel of the 
 #### Pokemon Memory Card Game:
 
 - A future feature could be that an API could hold a lot of players times and have a leaderboard.
-- Have difficulty settings with more cards, medium with 15 cards and hard with 20 cards etc...
+- Have difficulty settings with more cards, medium with 16 cards and hard with 24 cards etc...
 
 #### Pokemon Battlegrounds:
 

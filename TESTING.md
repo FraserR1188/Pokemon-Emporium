@@ -265,11 +265,9 @@ I also personally tested the website on iPhone 13, iPhone 11 and MSI gaming PC w
 
 - I had much difficulty keeping the footer down to the bottom of the page on the index page. To ensure the page responded well to what I wanted I had to reset the HTML page by using:
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 
 html, body {
     height: 100%
