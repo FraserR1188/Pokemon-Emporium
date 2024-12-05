@@ -180,11 +180,55 @@ I also personally tested the website on iPhone 13, iPhone 11 and MSI gaming PC w
 
 ### Index Page
 
+<img src="assets/images/readme-images/index-feature.png">
 
-### Pokemon Memory Card Game
+- The two navigation buttons work and take the user to their destination.
+- The third button, which is a help modal, works and pops up in the middle of the page. To close it the user can click outside of it or click/touch the cross.
+- In the Contact Use section of the footer the Email modal works and pops up. Once the correct fields have been filled in the user will send the email and an alert pops up.
+ - Also within the footer there are social icons which do a cool pop up animation when hovered over. When clicked the user will be taken to the relevant social platform.
+
+### Testing table for Pokemon Memory Card Game
+
+| **Test Case ID** | **Feature/Module**        | **Description**                         | **Steps to Test**                                                                 | **Expected Result**                                    | **Status** | **Comments**          |
+|-------------------|---------------------------|-----------------------------------------|----------------------------------------------------------------------------------|-------------------------------------------------------|------------|-----------------------|
+| TC001             | Game Board Rendering      | Verify the game board is displayed.     | 1. Load the memory card game page.                                              | Cards are displayed in a grid, all face down.         | ✅   |                       |
+| TC002             | Card Flip                | Ensure a card flips when clicked.       | 1. Click on a face-down card.                                                   | Card flips to reveal Pokémon image.                   | ✅   |                       |
+| TC003             | Match Detection          | Check if matching cards stay flipped.   | 1. Flip two cards with matching Pokémon images.                                  | Matching cards remain face up.                        | ✅  |                       |
+| TC004             | Mismatch Behavior        | Verify non-matching cards flip back.    | 1. Flip two cards with different Pokémon images.                                 | Cards flip back face down after a delay.              | ✅    |                       |
+| TC005             | Game Completion          | Check game ends when all pairs match.   | 1. Match all pairs on the board.                                                | Timer stops, and game completion is indicated.        | ✅   |                       |
+| TC006             | Restart Game             | Ensure restart resets board and timer.  | 1. Click "Restart Game".                                                        | All cards reset to face down; timer restarts.         | ✅   |                       |
+| TC007             | Responsive Layout        | Verify layout on various devices.       | 1. Open game on desktop, tablet, and mobile.                                     | Elements align correctly and are accessible.          | ✅    |                       |
+| TC008             | Help Modal               | Test "How to play" modal functionality. | 1. Click "How to play" button.<br>2. Close modal with "X".                       | Modal opens with instructions; closes correctly.      | ✅    |                       |
+| TC009             | Email Modal              | Test email modal form validation.       | 1. Click "Email" link.<br>2. Fill and submit form.                               | Modal opens; required fields validated; form submits. | ✅    |                       |
+| TC010             | Timer Functionality      | Verify timer starts and stops.          | 1. Start flipping cards.<br>2. Match all pairs.                                  | Timer starts on first flip; stops when game ends.     | ✅   |                       |
+| TC011             | Best Time Tracking       | Ensure "Time to beat" updates.          | 1. Complete the game with a faster time.                                         | "Time to beat" updates with the new best time.        | ✅    |                       |
+| TC012             | Mismatch Interaction     | Test flipping during mismatch delay.    | 1. Flip two mismatched cards.<br>2. Click a third card during animation.         | Game ignores input during mismatch animation.         | ✅    |                       |
+| TC013             | Restart During Play      | Test restarting mid-game.               | 1. Flip a few cards.<br>2. Click "Restart Game".                                 | Game resets without errors.                           | ✅    |                       |
+| TC014             | Navigation Buttons       | Verify navigation buttons redirect.     | 1. Click "Home Page".<br>2. Click "Pokemon Battlegrounds".                      | Buttons redirect to the correct pages.                | ✅   |                       |
+| TC015             | Social Media Links       | Check social media links functionality. | 1. Click each social media link in the footer.                                   | Links open in new tabs and lead to correct pages.     | ✅   |                       |
 
 
-### Pokemon Battle Simulator
+### Testing table for Pokemon Battle Simulator
+
+| **Test Case ID** | **Feature/Module**        | **Description**                         | **Steps to Test**                                                                 | **Expected Result**                                    | **Status** | **Comments**          |
+|-------------------|---------------------------|-----------------------------------------|----------------------------------------------------------------------------------|-------------------------------------------------------|------------|-----------------------|
+| TC016             | Navigation Buttons       | Verify navigation buttons redirect.     | 1. Click "Home Page".<br>2. Click "Pokemon Memory Card Game".                    | Buttons redirect to the correct pages.                | ✅ / ❌    |                       |
+| TC017             | Help Modal               | Test "How to play" modal functionality. | 1. Click "How to play" button.<br>2. Close modal using the "X" button.           | Modal displays instructions and closes correctly.     | ✅ / ❌    |                       |
+| TC018             | Pokémon Selection        | Verify Pokémon selection dropdowns.     | 1. Select a Pokémon from the dropdown.<br>2. Preview updates to match selection. | Selected Pokémon and preview image display correctly. | ✅ / ❌    |                       |
+| TC019             | Selection Completion     | Test behavior after selecting 3 Pokémon.| 1. Select three Pokémon.<br>2. Wait for opponent Pokémon selection.              | Opponent's Pokémon are displayed after user's.        | ✅ / ❌    |                       |
+| TC020             | Pokémon Display          | Check Pokémon display in battle arena.  | 1. Select Pokémon.<br>2. Start the battle.                                       | User and opponent Pokémon images and names display.   | ✅ / ❌    |                       |
+| TC021             | Battle Mechanics         | Test battle logic for attacks.          | 1. Choose an attack from user moves.<br>2. Verify opponent's HP decreases.       | Attack reduces opponent's HP; battle logs update.     | ✅ / ❌    |                       |
+| TC022             | Reset Button             | Ensure battle resets on button click.   | 1. Click "Reset Battle".                                                        | Battle resets; Pokémon selection cleared.             | ✅ / ❌    |                       |
+| TC023             | HP Bar Updates           | Verify HP bar reflects Pokémon health.  | 1. Use attacks to reduce HP.<br>2. Check if HP bar updates correctly.            | HP bar decreases proportionally to damage.            | ✅ / ❌    |                       |
+| TC024             | Battle Logs              | Ensure battle logs update correctly.    | 1. Perform attacks during the battle.                                           | Logs show move details, damage, and turn outcomes.    | ✅ / ❌    |                       |
+| TC025             | Responsive Layout        | Verify layout on various devices.       | 1. Open game on desktop, tablet, and mobile.                                     | Elements align correctly and are accessible.          | ✅ / ❌    |                       |
+| TC026             | Social Media Links       | Check social media links functionality. | 1. Click each social media link in the footer.                                   | Links open in new tabs and lead to correct pages.     | ✅ / ❌    |                       |
+| TC027             | Pokémon Images           | Verify Pokémon preview and battle images.| 1. Select Pokémon.<br>2. Start battle.<br>3. Check preview and battle images.    | Correct Pokémon images display throughout.            | ✅ / ❌    |                       |
+| TC028             | Accessibility            | Check keyboard navigation.              | 1. Navigate using `Tab` key.<br>2. Interact with buttons and dropdowns.          | All elements are keyboard accessible.                 | ✅ / ❌    |                       |
+| TC029             | Opponent AI              | Verify opponent Pokémon behavior.       | 1. Complete user Pokémon selection.<br>2. Monitor opponent AI moves.            | Opponent selects moves and executes attacks.          | ✅ / ❌    |                       |
+| TC030             | Error Handling           | Check for invalid Pokémon selection.    | 1. Attempt to proceed without selecting Pokémon.<br>2. Observe behavior.         | Game prevents progression until 3 Pokémon are chosen. | ✅ / ❌    |                       |
+| TC031             | Reset During Battle      | Test resetting mid-battle.              | 1. Start a battle.<br>2. Click "Reset Battle" before the battle ends.            | Game resets without errors or interruptions.          | ✅ / ❌    |                       |
+| TC032             | Footer Links             | Verify footer links navigate correctly. | 1. Click on "Contact Us" and "Follow Us" links.<br>2. Check destinations.        | Links lead to the appropriate pages or actions.       | ✅ / ❌    |                       |
 
 
 ## Peer Review
