@@ -295,12 +295,7 @@ More a more in-depth process click [here.](https://docs.github.com/en/pages/gett
 
 ## Credits
 - I used W3C schools and Stackover Flow for further understanding from the content through the Code Institute.
-
-Problems with the memory card game:
-
-In the memory card game I've had trouble accessing the location of the card sourcing.
-I originally thought this problem was focused in the startGame function but it was actually in the selectCard function and the card1Selected.src file path was board[r][c] but it should of been what it was right now.
-
-Once i thought the game was finished. After selecting the second card the game would stop. This was due to mentioned card1Selected twice in the selectCard function.
+- Many thanks to my mentor Mikto for guiding me the way.
+- The guys from Code Institute helped me a lot as well.
 
 issues with the index.html. Created a hidden-div to stop the footer overlapping the buttons on a mobile view.

@@ -2,20 +2,41 @@
 
 /********************************Index-Page************************/
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make wrapper full height of the viewport */
+    font-family: "Sixtyfour Convergence", sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
 .background-image {
     background-image: url("../images/pokemon-bg-1.jpg");
     background-size: cover; 
     max-width: 100%;
 }
 
+header, main {
+    flex: 1; /* Fills the available space, pushing the footer down */
+    }
+
 
 .page-layout {
-    font-family: "Sixtyfour Convergence", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100%;
 }
 
 .pokemon-header {
@@ -177,18 +198,14 @@
 
 /********************************Footer************************/
 
-#footer {
+.margin-footer {
     background-color: #555; 
     color: #fff; 
     border: 2px solid black;
     border-radius: 10px;
-}
-
-.margin-footer {
     font-family: "Sixtyfour Convergence", sans-serif;
     margin-top: auto;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 10px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     text-align: center;
@@ -223,6 +240,10 @@
     text-align: center;
 }
 
+.footer-box h3 {
+    padding: 10px;
+}
+
 #footer-links > a,
 #footer > p > a {
     color: #fff; 
@@ -246,6 +267,7 @@
     flex-wrap: wrap;
     gap: 5px;
     justify-content: center;
+    box-sizing: unset;
 }
 
 .card {

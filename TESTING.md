@@ -214,7 +214,7 @@ I also personally tested the website on iPhone 13, iPhone 11 and MSI gaming PC w
 
 | **Test Case ID** | **Feature/Module**        | **Description**                         | **Steps to Test**                                                                 | **Expected Result**                                    | **Status** | **Comments**          |
 |-------------------|---------------------------|-----------------------------------------|----------------------------------------------------------------------------------|-------------------------------------------------------|------------|-----------------------|
-| TC016             | Game Board Rendering      | Verify the game board is displayed.     | 1. Load the memory card game page.                                              | Cards are displayed in a grid, all face down.         | ✅ |                       |
+| TC016             | Game Board Rendering     | Verify the game board is displayed.     | 1. Load the memory card game page.                                              | Cards are displayed in a grid, all face down.         | ✅ |                       |
 | TC017             | Card Flip                | Ensure a card flips when clicked.       | 1. Click on a face-down card.                                                   | Card flips to reveal Pokémon image.                   | ✅ |                       |
 | TC018             | Match Detection          | Check if matching cards stay flipped.   | 1. Flip two cards with matching Pokémon images.                                  | Matching cards remain face up.                        | ✅ |                       |
 | TC019             | Mismatch Behavior        | Verify non-matching cards flip back.    | 1. Flip two cards with different Pokémon images.                                 | Cards flip back face down after a delay.              | ✅ |                       |
@@ -237,7 +237,7 @@ I also personally tested the website on iPhone 13, iPhone 11 and MSI gaming PC w
 |-------------------|---------------------------|-----------------------------------------|----------------------------------------------------------------------------------|-------------------------------------------------------|------------|-----------------------|
 | TC031             | Navigation Buttons       | Verify navigation buttons redirect.     | 1. Click "Home Page".<br>2. Click "Pokemon Memory Card Game".                    | Buttons redirect to the correct pages.                | ✅ |                       |
 | TC032             | Help Modal               | Test "How to play" modal functionality. | 1. Click "How to play" button.<br>2. Close modal using the "X" button.           | Modal displays instructions and closes correctly.     | ✅ |                       |
-| TC033             | Pokémon Selection        | Verify Pokémon selection dropdowns.     | 1. Select a Pokémon from the dropdown.<br>2. Preview updates to match selection. | Selected Pokémon and preview image display correctly. | ✅ |                       |
+| TC033             | Pokémon Selection        | Veri fy Pokémon selection dropdowns.     | 1. Select a Pokémon from the dropdown.<br>2. Preview updates to match selection. | Selected Pokémon and preview image display correctly. | ✅ |                       |
 | TC034             | Selection Completion     | Test behavior after selecting 3 Pokémon.| 1. Select three Pokémon.<br>2. Wait for opponent Pokémon selection.              | Opponent's Pokémon are displayed after user's.        | ✅ |                       |
 | TC035             | Pokémon Display          | Check Pokémon display in battle arena.  | 1. Select Pokémon.<br>2. Start the battle.                                       | User and opponent Pokémon images and names display.   | ✅ |                       |
 | TC036             | Battle Mechanics         | Test battle logic for attacks.          | 1. Choose an attack from user moves.<br>2. Verify opponent's HP decreases.       | Attack reduces opponent's HP; battle logs update.     | ✅ |                       |
@@ -260,3 +260,21 @@ I also personally tested the website on iPhone 13, iPhone 11 and MSI gaming PC w
 - My family and friends have also tested the project and have given positive feedback.
 
 ## Bugs
+
+- In the memory card game I've had trouble accessing the location of the card sourcing. I originally thought this problem was focused in the startGame function but it was actually in the selectCard function and the card1Selected.src file path was board[r][c] but it should of been what it was right now. I then resassed the situation and completely changed how the startGame and selectCard worked and created addClass for front and back which was a lot easier to read.
+
+- Once I thought the game was finished. After selecting the second card the game would stop. This was due to mentioned card1Selected twice in the selectCard function.
+
+- I had much difficulty keeping the footer down to the bottom of the page on the index page. To ensure the page responded well to what I wanted I had to reset the HTML page by using:
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%
+}
+
+Then use flex to lay it out appropriately.
