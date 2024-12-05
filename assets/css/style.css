@@ -501,19 +501,27 @@ button#battle-btn {
     }
 }
 
+@media (max-width: 500px) {
+    #game-board {
+        gap: 2px;
+    }
+    .card {
+        height: 60px;
+        width: 45px;
+    }
+}
 
 @media (max-width: 400px) {
     #index-pokemon-header {
         font-size: 0.8rem;
     }
     #game-board {
-        gap: 3px; /* Reduce the gap between cards */
+        gap: 2px;
     }
     .card {
-        height: 80px; /* Reduce card height */
-        width: 55px; /* Reduce card width for smaller screens */
+        height: 60px;
+        width: 45px;
     }
-
     .page-header {
         font-size: 1.5em; /* Reduce header font size for small screens */
     }
