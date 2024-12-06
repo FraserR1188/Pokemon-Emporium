@@ -56,6 +56,8 @@ Testing for the website's CSS was carried out through the W3C CSS Validator whic
 
 <img src="assets/images/testing-images/memory-jshint.png">
 
+The testing states that there is one unused varible. This is being used from the HTML element as an onclick attribute from the button.
+
 ### battle.js
 
 <img src="assets/images/testing-images/battle-jshint.png">
