@@ -49,10 +49,10 @@
 	* [Making a Local Clone](#making-a-local-clone)
 
 8. [Credits](#credits)
-	* [Content]
-	* [Media]
-	* [Code]
-	* [Acknowledgements]
+	* [Content](#content)
+	* [Media](#media)
+	* [Code](#code)
+	* [Acknowledgements](#acknowledgements)
 
 ## Project Goals
 This website is dedicated to the love of Pokemon and targets to main fanbases, people who enjoy Pokemon cards and also the game itself with the Battleground aspect. The memory card is light hearted with a timer and a time to beat rather than a countdown timer to make less stressful and more fun to play and also to play again.
@@ -228,10 +228,6 @@ I used these specific images for the footer to keep with the gaming feel of the 
 	- I used this for debugging and respsonsiveness throughout the project build.
 - [Coolors](https://coolors.co/)
 	- I used this website to create the palette for the coloures which are used in the project.
-- [Alpha Coders](https://alphacoders.com/pokemon-4k-wallpapers)
-	- This is where I obtained the background image used throughout the website.
--  [TCG Pokemon Card Website](https://www.pokemon.com/us/pokemon-tcg/pokemon-cards)
-	- This is where I obtained all the cards used in the Memory Card game.
 
 ### Application Programming Interface (API's)
 
@@ -294,6 +290,32 @@ Then follow:
 More a more in-depth process click [here.](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
 
 ## Credits
+
+### Content
+
+- [Pokemon Showdown](https://calc.pokemonshowdown.com/) I used this website to give me a better understanding on how to create a battle simulator.
+- [PvPoke](https://pvpoke.com/battle/) This website also gave me inspiration on the battle simulator.
+
+### Code
+
 - I used W3C schools and Stackover Flow for further understanding from the content through the Code Institute.
-- Many thanks to my mentor Mikto for guiding me the way.
-- The guys from Code Institute helped me a lot as well.
+- I went through the documentation thoroughly from the Pokemon API.
+- I used YouTube to help me understand the layout of the memory card game from different examples.
+
+### Media
+
+-  [TCG Pokemon Card Website](https://www.pokemon.com/us/pokemon-tcg/pokemon-cards)
+	- This is where I obtained all the cards used in the Memory Card game.
+- [Alpha Coders](https://alphacoders.com/pokemon-4k-wallpapers)
+	- This is where I obtained the background image used throughout the website.
+- The images from the battle simulator were acquired through the API.
+
+### Acknowledgements
+
+- Many thanks to my mentor Mikto for guiding me the way with heplful feedback and recommended tools.
+- Thank you to the tutors and staff at Code Institute for their support.
+- I really appreciate the people who I work with as it provided a wide testing base.
+
+Please note this is a personal project. This website is purely for the sake of the developer's portfolio and not for public consumption.
+
+Robbie Fraser, 2024
