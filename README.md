@@ -203,6 +203,9 @@ I used these specific images for the footer to keep with the gaming feel of the 
 
 #### Pokemon Battlegrounds:
 
+- Increase the team size up to 6 Pokemon on both user and computer.
+- Have movements on the sprites if they were attacked or attacking.
+- Be able to change Pokemon mid fight.
 
 ## Technologies Use
 ### Languages Used
